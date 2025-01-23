@@ -1,0 +1,19 @@
+{
+  "name": "developer-notes",
+  "version": "1.0.0",
+  "description": "Justin's Developer Notes Taken over the Years",
+  "main": "index.js",
+  "scripts": {
+    "test": "]"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinszaro/Notes.git"
+  },
+  "author": "Justin Szaro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justinszaro/Notes/issues"
+  },
+  "homepage": "https://github.com/justinszaro/Notes#readme"
+}
