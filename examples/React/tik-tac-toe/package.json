@@ -1,23 +1,29 @@
 {
-  "name": "react-sandbox",
-  "version": "1.0.0",
-  "description": "Justin's React Sandbox for testing out new features and practice.",
-  "main": "index.js",
+  "name": "react.dev",
+  "version": "0.0.0",
+  "main": "/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/justinszaro/react-sandbox.git"
-  },
-  "author": "Justin Szaro",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/justinszaro/react-sandbox/issues"
-  },
-  "homepage": "https://github.com/justinszaro/react-sandbox#readme",
   "dependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-scripts": "^5.0.0"
+  },
+  "devDependencies": {},
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

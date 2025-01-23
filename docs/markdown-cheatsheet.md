@@ -62,6 +62,13 @@ _italic_ or _italic_
 
 Use `inline code` within text
 
+Some Markdown processors support language specification for inline code:
+`python{print("Hello")}`
+`css{.className}`
+`js{const x = 1}`
+
+Note: Language-specific inline code is not supported in all Markdown processors.
+
 ### Code Blocks
 ```
 function example() {
