@@ -548,13 +548,13 @@ useQuery({
 focusManager.setEventListener((handleFocus) => {
   // Listen to visibility change
   if (typeof window !== 'undefined' && window.addEventListener) {
-    const visibilitychangeHandler = () => {
+    const visibilityChangeHandler = () => {
       handleFocus(document.visibilityState === 'visible')
     }
-    window.addEventListener('visibilitychange', visibilitychangeHandler, false)
+    window.addEventListener('visibilityChange', visibilityChangeHandler, false)
     return () => {
       // Be sure to unsubscribe if a new handler is set
-      window.removeEventListener('visibilitychange', visibilitychangeHandler)
+      window.removeEventListener('visibilityChange', visibilityChangeHandler)
     }
   }
 })
@@ -780,3 +780,296 @@ function Todos() {
 - The `placeholderData` option also works with `useInfiniteQuery` hook.
 
 ## Infinite Queries
+- Rendering lists that can additively "load more" data onto an existing set or "infinitely scroll" is a common UI pattern.
+- In this use case, you can use `useInfiniteQuery`.
+- There are a few things different about `useInfiniteQuery`
+  - `data` is not an object containing infinite query data.
+  - `data.pages` array contains the fetched pages.
+  - `data.pageParams` array contains the page params used to fetch the pages.
+  - The `fetchNextPage` and `fetchPreviousPage` functions are available.
+  - The `initialPageParam` option is available to specify the initial page param.
+  - The `getNextPageParam` and `getPreviousPageParam` options are available for determining if there is more data to load and the info to fetch it.
+  - A `hasNextPage` boolean is available.
+  - A `hasPreviousPage` boolean is available.
+  - The `isFetchingNextPage` and `isFetchingPreviousPage` booleans are now available.
+- Example: There is an API that returns pages of 3 projects at a time based on a cursor index.
+```tsx
+fetch('/api/projects?cursor=0')
+// { data: [...], nextCursor: 3}
+fetch('/api/projects?cursor=3')
+// { data: [...], nextCursor: 6}
+fetch('/api/projects?cursor=6')
+// { data: [...], nextCursor: 9}
+fetch('/api/projects?cursor=9')
+// { data: [...] }
+```
+- In this case, you can make a "Load More" UI by:
+  - Waiting for `useInfiniteQuery` to request the first group of data by default.
+  - Returning the information for the next query in `getNextPageParam`
+  - Calling `fetchNextPage` function
+```tsx
+import { useInfiniteQuery } from '@tanstack/react-query'
+
+function Projects() {
+  const fetchProjects = async ({ pageParam }) => {
+    const res = await fetch('/api/projects?cursor=' + pageParam)
+    return res.json()
+  }
+
+  const {
+    data,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+    isFetchingNextPage,
+    status,
+  } = useInfiniteQuery({
+    queryKey: ['projects'],
+    queryFn: fetchProjects,
+    initialPageParam: 0,
+    getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
+  })
+
+  return status === 'pending' ? (
+    <p>Loading...</p>
+  ) : status === 'error' ? (
+    <p>Error: {error.message}</p>
+  ) : (
+    <>
+      {data.pages.map((group, i) => (
+        <React.Fragment key={i}>
+          {group.data.map((project) => (
+            <p key={project.id}>{project.name}</p>
+          ))}
+        </React.Fragment>
+      ))}
+      <div>
+        <button
+          onClick={() => fetchNextPage()}
+          disabled={!hasNextPage || isFetchingNextPage}
+        >
+          {isFetchingNextPage
+            ? 'Loading more...'
+            : hasNextPage
+              ? 'Load More'
+              : 'Nothing more to load'}
+        </button>
+      </div>
+      <div>{isFetching && !isFetchingNextPage ? 'Fetching...' : null}</div>
+    </>
+  )
+}
+```
+- Calling `fetchNextPage` while an ongoing fetch is in progress risks overwritten data happening in the background. 
+- At all times, there can only be a single fetch for an Infinite Query at a time.
+- If you want to enable simultaneous fetching, you can do `{ cancelRefetch: false }` option within `fetchNextPage`.
+
+### What happens when an infinite query needs to be re-fetched?
+- Each group is re-fetched sequentially. 
+
+### What if I want to implement a bi-directional infinite list?
+- Bi-Direction infinite lists can be implemented using `getPreviousPageParam`, `fetchPreviousPage`, `hasPreviousPage` and `isFetchingPreviousPage`.
+```tsx
+useInfiniteQuery({
+  queryKey: ['projects'],
+  queryFn: fetchProjects,
+  initialPageParam: 0,
+  getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
+  getPreviousPageParam: (firstPage, pages) => firstPage.prevCursor,
+})
+```
+
+### What if I want to show the pages in reverse order?
+- You can use the select option:
+```tsx
+useInfiniteQuery({
+  queryKey: ['projects'],
+  queryFn: fetchProjects,
+  select: (data) => ({
+    pages: [...data.pages].reverse(),
+    pageParams: [...data.pageParams].reverse(),
+  }),
+})
+```
+
+### What if I want to manually update the infinite query?
+#### Manually removing first page:
+```tsx
+queryClient.setQueryData(['projects'], (data) => ({
+  pages: data.pages.slice(1),
+  pageParams: data.pageParams.slice(1),
+}))
+```
+
+#### Manually removing a single value from an individual page:
+```tsx
+const newPagesArray =
+  oldPagesArray?.pages.map((page) =>
+    page.filter((val) => val.id !== updatedId),
+  ) ?? []
+
+queryClient.setQueryData(['projects'], (data) => ({
+  pages: newPagesArray,
+  pageParams: data.pageParams,
+}))
+```
+
+#### Keep only the first page:
+```tsx
+queryClient.setQueryData(['projects'], (data) => ({
+  pages: data.pages.slice(0, 1),
+  pageParams: data.pageParams.slice(0, 1),
+}))
+```
+
+### What if I want limit the number of pages?
+- In some cases, you may want to limit the pages stored in query data to improve the performance and UX.
+  - When the user can load a large number of pages (memory usage)
+  - When you have to refetch an infinite query that contains dozens of pages (network usage: all the pages are sequentially fetched)
+- The solution is to use a "Limited Infinite Query".
+- Set the `maxPages` option in conjunction with the `getNextPageParam` and `getPreviousPageParam` to allow fetching pages when needed in both directions.
+```tsx
+useInfiniteQuery({
+  queryKey: ['projects'],
+  queryFn: fetchProjects,
+  initialPageParam: 0,
+  getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
+  getPreviousPageParam: (firstPage, pages) => firstPage.prevCursor,
+  maxPages: 3,
+})
+```
+
+### What if my API doesn't return a cursor?
+- You can use the `pageParam` as a cursor. Because `getNextPageParam` and `getPreviousPageParam` also get the `pageParam` of the current page, you can use it to calculate the next / previous page param.
+```tsx
+return useInfiniteQuery({
+  queryKey: ['projects'],
+  queryFn: fetchProjects,
+  initialPageParam: 0,
+  getNextPageParam: (lastPage, allPages, lastPageParam) => {
+    if (lastPage.length === 0) {
+      return undefined
+    }
+    return lastPageParam + 1
+  },
+  getPreviousPageParam: (firstPage, allPages, firstPageParam) => {
+    if (firstPageParam <= 1) {
+      return undefined
+    }
+    return firstPageParam - 1
+  },
+})
+```
+
+## Initial Query Data
+- There are many ways to supply initial data for a query to the cache before needing it:
+  - Declaratively: Provide `initialData` to a query to pre-populate it's cache if empty.
+  - Imperatively:
+    - Prefetch the data using `queryClient.prefetchQuery`
+    - Manually place the data into the cache using `queryClient.setQueryData`.
+
+### Using `initialData` to pre-populate a query
+- When you already have the data prepared in your app, you can provide it directly to the query.
+- If this is the case, you can use `config.initialData` option to set the initial data for the query and skip the loading state. 
+```tsx
+const result = useQuery({
+  queryKey: ['todos'],
+  queryFn: () => fetch('/todos'),
+  initialData: initialTodos,
+})
+```
+
+### `stateTime` and `initialDataUpdatedAt`
+- By default, `initialData` is treated as totally fresh, as if it was just fetched. This means that it will affect how it is interpreted by the `staleTime` option.
+  - If the query observer is configured with `initialData`, and no `staleTime` (Default 0), the query will immediately refetch when it mounts.
+```tsx
+// Will show initialTodos immediately, but also immediately refetch todos after mount
+const result = useQuery({
+  queryKey: ['todos'],
+  queryFn: () => fetch('/todos'),
+  initialData: initialTodos,
+})
+```
+  - If you configure your query observer with `initialData` and a `staleTime` of 1000ms, the data will be considered fresh for that amount of time.
+```tsx
+// Show initialTodos immediately, but won't refetch until another interaction event is encountered after 1000 ms
+const result = useQuery({
+  queryKey: ['todos'],
+  queryFn: () => fetch('/todos'),
+  initialData: initialTodos,
+  staleTime: 1000,
+})
+```
+  - If the `initialData` isn't fresh, use can use the `initialDataUpdatedAt` option. You can pass a numeric Javascript timestamp in ms of when the data was last updated.
+```tsx
+// Show initialTodos immediately, but won't refetch until another interaction event is encountered after 1000 ms
+const result = useQuery({
+  queryKey: ['todos'],
+  queryFn: () => fetch('/todos'),
+  initialData: initialTodos,
+  staleTime: 60 * 1000, // 1 minute
+  // This could be 10 seconds ago or 10 minutes ago
+  initialDataUpdatedAt: initialTodosUpdatedTimestamp, // eg. 1608412420052
+})
+```
+
+### Initial Data Function
+- If the process for accessing a query's initial data is intensive or not something you want to do on every render, you can pass the function as an `initialData` value. 
+- The function will only be executed once when the query is initialized.
+```tsx
+const result = useQuery({
+  queryKey: ['todos'],
+  queryFn: () => fetch('/todos'),
+  initialData: () => getExpensiveTodos(),
+})
+```
+
+### Initial Data from Cache
+- You can also provide initial data for a query from the cached result of another. This is great for adding the result of an individual item from a list.
+```tsx
+const result = useQuery({
+  queryKey: ['todo', todoId],
+  queryFn: () => fetch('/todos'),
+  initialData: () => {
+    // Use a todo from the 'todos' query as the initial data for this todo query
+    return queryClient.getQueryData(['todos'])?.find((d) => d.id === todoId)
+  },
+})
+```
+
+### Initial Data from the cache with `initialDataUpdatedAt`
+- Getting initial data from the cache means the source query is likely old.
+- It is suggested that you pass the source query's `dataUpdatedAt` to `initialDataUpdatedAt` to allow it be re-fetched if needed.
+```tsx
+const result = useQuery({
+  queryKey: ['todos', todoId],
+  queryFn: () => fetch(`/todos/${todoId}`),
+  initialData: () =>
+    queryClient.getQueryData(['todos'])?.find((d) => d.id === todoId),
+  initialDataUpdatedAt: () =>
+    queryClient.getQueryState(['todos'])?.dataUpdatedAt,
+})
+```
+
+### Conditional Initial Data from Cache
+- If the cached source infromation is old, you may not want it at all.
+- You can use the `queryClient.getQueryState` method instead to get more infromation about the source query, including a `state.dataUpdatedAt` timstamp you can use to decide if the query is "fresh" enough.
+```
+const result = useQuery({
+  queryKey: ['todo', todoId],
+  queryFn: () => fetch(`/todos/${todoId}`),
+  initialData: () => {
+    // Get the query state
+    const state = queryClient.getQueryState(['todos'])
+
+    // If the query exists and has data that is no older than 10 seconds...
+    if (state && Date.now() - state.dataUpdatedAt <= 10 * 1000) {
+      // return the individual todo
+      return state.data.find((d) => d.id === todoId)
+    }
+
+    // Otherwise, return undefined and let it fetch from a hard loading state!
+  },
+})
+```

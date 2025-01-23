@@ -1,6 +1,6 @@
 # TanStackQuery
 
-- TanStackQuery is a powerful asyncronous state management for the following languages/frameworks:
+- TanStackQuery is a powerful asynchronous state management for the following languages/frameworks:
   - Typescript
   - Javascript
   - React
@@ -8,8 +8,8 @@
   - Vue
   - Svelte
   - Angular
-- TanStackQuery is declaritive and automatic.
-  - TanStackQuery handles cahcing, background updates, and stale data out of the box with zero configurations.
+- TanStackQuery is declarative and automatic.
+  - TanStackQuery handles caching, background updates, and stale data out of the box with zero configurations.
 - TanStackQuery is simple and familiar.
   - If you can work with promises or async/await, you already know how to use TanStackQuery.
 - TanStackQuery is extensible:
@@ -17,17 +17,17 @@
 
 ## Overview
 
-- TanStackQuery makes fetching, caching, syncronizing, and updating the server state a breeze.
+- TanStackQuery makes fetching, caching, synchronizing, and updating the server state a breeze.
 
 ### Motivation
 
 - React does not come with an opinionated way of fetching or updating data from your components, so developers are forced to make their own way.
 - While traditional state management libraries are great for working with the client state, they are not great with working with async or server state. This is due to server states being completely different:
   - Is persisted remotely in a location you do not control or own.
-  - Required asyncronous APIs for updating and fetching.
+  - Required asynchronous APIs for updating and fetching.
   - Implies shared ownership and can be changed by other people without your knowledge.
   - Can potentially become "out of date" with your application if you're not careful.
-- Once the server state is grasped, more challenges arrise:
+- Once the server state is grasped, more challenges arise:
   - Caching... (possibly the hardest thing to do in programming)
   - Deduping multiple requests for the same data into a single request
   - Updating "out of date" data in the background
@@ -80,7 +80,7 @@ bun add @tanstack/react-query
 
 ### Recommendations
 
-- It is recommened to install the ESLint Plugin Query to help catch bugs and inconsistancies:
+- It is recommended to install the ESLint Plugin Query to help catch bugs and inconsistencies:
 
 #### NPM:
 
@@ -304,7 +304,7 @@ export default App;
 
 ## GraphQL
 
-- Because TanStackQuery's fetching mechanims are built on Promises, you can use it with GraphQL!
+- Because TanStackQuery's fetching mechanism are built on Promises, you can use it with GraphQL!
 
 ## React Native
 
