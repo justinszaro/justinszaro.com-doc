@@ -45,8 +45,8 @@ _italic_ or _italic_
 
 ## Images
 
-![Alt text](image.jpg)
-![Alt text](image.jpg "Image title")
+![Alt text](../static/img/docusaurus.png)
+![Alt text](../static/img/docusaurus.png "Image title")
 
 ## Blockquotes
 
