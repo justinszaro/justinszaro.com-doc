@@ -1053,8 +1053,8 @@ const result = useQuery({
 ```
 
 ### Conditional Initial Data from Cache
-- If the cached source infromation is old, you may not want it at all.
-- You can use the `queryClient.getQueryState` method instead to get more infromation about the source query, including a `state.dataUpdatedAt` timstamp you can use to decide if the query is "fresh" enough.
+- If the cached source information is old, you may not want it at all.
+- You can use the `queryClient.getQueryState` method instead to get more information about the source query, including a `state.dataUpdatedAt` timestamp you can use to decide if the query is "fresh" enough.
 ```
 const result = useQuery({
   queryKey: ['todo', todoId],
@@ -1072,4 +1072,396 @@ const result = useQuery({
     // Otherwise, return undefined and let it fetch from a hard loading state!
   },
 })
+```
+
+## Placeholder Query Data
+- Place holder data allows the query to already behave as if it has data, similarly to `initialData`, but the data is not persisted to the cache.
+- This can be used when you have enough partial or fake data to render the query successfully while the rest of the data is fetching in the background.
+- There are a few different ways to supply placeholder data:
+  - Declaratively - Provide `placeholderData` to the query to populate the cache if empty.
+  - Imperatively - Prefetch or fetch the data using `queryClient` and the `placeholderData` option.
+  - Since there is data being displayed, `status` will be in a success state. Instead, you can use the `isPlaceholderData` to check.
+
+### Placeholder Data as a Value
+```tsx
+function Todos() {
+  const result = useQuery({
+    queryKey: ['todos'],
+    queryFn: () => fetch('/todos'),
+    placeholderData: placeholderTodos,
+  })
+}
+```
+
+### Placeholder Data Memoize
+- If accessing a query's placeholder data is intensive, you can memoize the value:
+```tsx
+function Todos() {
+  const placeholderData = useMemo(() => generateFakeTodos(), [])
+  const result = useQuery({
+    queryKey: ['todos'],
+    queryFn: () => fetch('/todos'),
+    placeholderData,
+  })
+}
+```
+
+### Placeholder Data as a Function
+- `placeholderData` can be a function, where you could get access to a previous query.
+- For example, when changing to todo 2 instead of todo 1, we can leave todo 1's data displayed.
+```tsx
+const result = useQuery({
+  queryKey: ['todos', id],
+  queryFn: () => fetch(`/todos/${id}`),
+  placeholderData: (previousData, previousQuery) => previousData,
+})
+```
+
+### Placeholder Data From Cache
+- In some cases, you can provide placeholder data from the cache of another query.
+```tsx
+function Todo({ blogPostId }) {
+  const queryClient = useQueryClient()
+  const result = useQuery({
+    queryKey: ['blogPost', blogPostId],
+    queryFn: () => fetch(`/blogPosts/${blogPostId}`),
+    placeholderData: () => {
+      // Use the smaller/preview version of the blogPost from the 'blogPosts'
+      // query as the placeholder data for this blogPost query
+      return queryClient
+        .getQueryData(['blogPosts'])
+        ?.find((d) => d.id === blogPostId)
+    },
+  })
+}
+```
+
+## Mutations
+- Mutations do create, update, and delete operations, along with performing server side-effects.
+- For these purposes, you can use the `useMutation` hook.
+```tsx
+function App() {
+  const mutation = useMutation({
+    mutationFn: (newTodo) => {
+      return axios.post('/todos', newTodo)
+    },
+  })
+
+  return (
+    <div>
+      {mutation.isPending ? (
+        'Adding todo...'
+      ) : (
+        <>
+          {mutation.isError ? (
+            <div>An error occurred: {mutation.error.message}</div>
+          ) : null}
+
+          {mutation.isSuccess ? <div>Todo added!</div> : null}
+
+          <button
+            onClick={() => {
+              mutation.mutate({ id: new Date(), title: 'Do Laundry' })
+            }}
+          >
+            Create Todo
+          </button>
+        </>
+      )}
+    </div>
+  )
+}
+```
+- A Mutation can having the following states:
+  - `isIdle` or `status == 'idle'` - The mutation is currently idle or in a fresh/reset state.
+  - `isPending` or `status === 'pending'` - The mutation is currently running
+  - `isError` or `status === 'error'` - The mutation encountered an error
+  - `isSuccess` or `status === 'success'` - The mutation was successful and mutation data is available
+- There is also information available depending on the state:
+  - `error` - If the mutation is in an `error` state, the error is available via the `error` property.
+  - `data` - If the mutation is in a `success` state, the data is available via the `data` property.
+- In the example above, a single variable or object is passed to the mutation.
+- With the mutations onSuccess option, the `invalidateQueries` method and the `setQueryData` method, mutations can become extremely powerful.
+- The mutate is an asynchronous function, so you need to wrap the `mutate` in another function.
+```tsx
+// This will not work in React 16 and earlier
+const CreateTodo = () => {
+  const mutation = useMutation({
+    mutationFn: (event) => {
+      event.preventDefault()
+      return fetch('/api', new FormData(event.target))
+    },
+  })
+
+  return <form onSubmit={mutation.mutate}>...</form>
+}
+
+// This will work
+const CreateTodo = () => {
+  const mutation = useMutation({
+    mutationFn: (formData) => {
+      return fetch('/api', formData)
+    },
+  })
+  const onSubmit = (event) => {
+    event.preventDefault()
+    mutation.mutate(new FormData(event.target))
+  }
+
+  return <form onSubmit={onSubmit}>...</form>
+}
+```
+
+### Resetting Mutation State
+- If you need to clear the `error` and `data` of a mutation, you can use the `reset` function.
+```tsx
+const CreateTodo = () => {
+  const [title, setTitle] = useState('')
+  const mutation = useMutation({ mutationFn: createTodo })
+
+  const onCreateTodo = (e) => {
+    e.preventDefault()
+    mutation.mutate({ title })
+  }
+
+  return (
+    <form onSubmit={onCreateTodo}>
+      {mutation.error && (
+        <h5 onClick={() => mutation.reset()}>{mutation.error}</h5>
+      )}
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <br />
+      <button type="submit">Create Todo</button>
+    </form>
+  )
+}
+```
+
+### Mutation Side Effects
+- `useMutation` comes with some helper options to allow quick and easy side-effects.
+- This can be used for invalidating and refetching queries after mutations or even optimistic updates.
+```tsx
+useMutation({
+  mutationFn: addTodo,
+  onMutate: (variables) => {
+    // A mutation is about to happen!
+
+    // Optionally return a context containing data to use when for example rolling back
+    return { id: 1 }
+  },
+  onError: (error, variables, context) => {
+    // An error happened!
+    console.log(`rolling back optimistic update with id ${context.id}`)
+  },
+  onSuccess: (data, variables, context) => {
+    // Boom baby!
+  },
+  onSettled: (data, error, variables, context) => {
+    // Error or success... doesn't matter!
+  },
+})
+```
+- If you are returning a promise in any of the callback functions, they will wait for the previous one to finish.
+```tsx
+useMutation({
+  mutationFn: addTodo,
+  onSuccess: async () => {
+    console.log("I'm first!")
+  },
+  onSettled: async () => {
+    console.log("I'm second!")
+  },
+})
+```
+- You can also trigger additional callbacks using the `onSuccess`, `onError`, and `onSettled`. These callbacks will not run if the component unmounts before the mutation finishes.
+```tsx
+useMutation({
+  mutationFn: addTodo,
+  onSuccess: (data, variables, context) => {
+    // I will fire first
+  },
+  onError: (error, variables, context) => {
+    // I will fire first
+  },
+  onSettled: (data, error, variables, context) => {
+    // I will fire first
+  },
+})
+
+mutate(todo, {
+  onSuccess: (data, variables, context) => {
+    // I will fire second!
+  },
+  onError: (error, variables, context) => {
+    // I will fire second!
+  },
+  onSettled: (data, error, variables, context) => {
+    // I will fire second!
+  },
+})
+```
+
+#### Consecutive Mutations
+- There is a difference between the `onSuccess`, `onError`, and `onSettled` callbacks when mutations are consecutive. 
+- When passed to the mutate function, the will be fired up once and only if the component is mounted. 
+- The `useMutation` function will execute for each mutate call.
+```tsx
+useMutation({
+  mutationFn: addTodo,
+  onSuccess: (data, variables, context) => {
+    // Will be called 3 times
+  },
+})
+
+const todos = ['Todo 1', 'Todo 2', 'Todo 3']
+todos.forEach((todo) => {
+  mutate(todo, {
+    onSuccess: (data, variables, context) => {
+      // Will execute only once, for the last mutation (Todo 3),
+      // regardless which mutation resolves first
+    },
+  })
+})
+```
+
+### Promises
+- Use `mutateAsync` instead of `mutate` to get a promise will resolve on success or throw an error.
+- This can be used to compose side effects.
+```tsx
+const mutation = useMutation({ mutationFn: addTodo })
+
+try {
+  const todo = await mutation.mutateAsync(todo)
+  console.log(todo)
+} catch (error) {
+  console.error(error)
+} finally {
+  console.log('done')
+}
+```
+
+### Retry
+- By default, mutations are not retried, but is possible with the `retry` function.
+```tsx
+const mutation = useMutation({
+  mutationFn: addTodo,
+  retry: 3,
+})
+```
+
+### Persist Mutations
+- Mutations can be persisted to storage if needed and resumed later on. 
+```tsx
+const queryClient = new QueryClient()
+
+// Define the "addTodo" mutation
+queryClient.setMutationDefaults(['addTodo'], {
+  mutationFn: addTodo,
+  onMutate: async (variables) => {
+    // Cancel current queries for the todos list
+    await queryClient.cancelQueries({ queryKey: ['todos'] })
+
+    // Create optimistic todo
+    const optimisticTodo = { id: uuid(), title: variables.title }
+
+    // Add optimistic todo to todos list
+    queryClient.setQueryData(['todos'], (old) => [...old, optimisticTodo])
+
+    // Return context with the optimistic todo
+    return { optimisticTodo }
+  },
+  onSuccess: (result, variables, context) => {
+    // Replace optimistic todo in the todos list with the result
+    queryClient.setQueryData(['todos'], (old) =>
+      old.map((todo) =>
+        todo.id === context.optimisticTodo.id ? result : todo,
+      ),
+    )
+  },
+  onError: (error, variables, context) => {
+    // Remove optimistic todo from the todos list
+    queryClient.setQueryData(['todos'], (old) =>
+      old.filter((todo) => todo.id !== context.optimisticTodo.id),
+    )
+  },
+  retry: 3,
+})
+
+// Start mutation in some component:
+const mutation = useMutation({ mutationKey: ['addTodo'] })
+mutation.mutate({ title: 'title' })
+
+// If the mutation has been paused because the device is for example offline,
+// Then the paused mutation can be dehydrated when the application quits:
+const state = dehydrate(queryClient)
+
+// The mutation can then be hydrated again when the application is started:
+hydrate(queryClient, state)
+
+// Resume the paused mutations:
+queryClient.resumePausedMutations()
+```
+
+#### Persisting Offline Mutations
+- You can persist offline mutations using the `persistQueryClient` plugin. 
+```tsx
+const persister = createSyncStoragePersister({
+  storage: window.localStorage,
+})
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      gcTime: 1000 * 60 * 60 * 24, // 24 hours
+    },
+  },
+})
+
+// we need a default mutation function so that paused mutations can resume after a page reload
+queryClient.setMutationDefaults(['todos'], {
+  mutationFn: ({ id, data }) => {
+    return api.updateTodo(id, data)
+  },
+})
+
+export default function App() {
+  return (
+    <PersistQueryClientProvider
+      client={queryClient}
+      persistOptions={{ persister }}
+      onSuccess={() => {
+        // resume mutations after initial restore from localStorage was successful
+        queryClient.resumePausedMutations()
+      }}
+    >
+      <RestOfTheApp />
+    </PersistQueryClientProvider>
+  )
+}
+```
+
+### Mutation Scopes
+- By default, mutations run in parallel. Even if you run `.mutate()` of the same mutation multiple times. 
+- Mutations can be given a scope with an id to avoid it.
+- All mutations with the same `scope.id` will run in serial, which means they will start in a paused state if there is already a mutation in progress.
+```tsx
+const mutation = useMutation({
+  mutationFn: addTodo,
+  scope: {
+    id: 'todo',
+  },
+})
+```
+
+## Query Invalidation
+- Waiting for queries to become stale doesn't always work, especially if the user does an action that changes the data. 
+- `QueryClient` has an `invalidateQueries` method that lets you intelligently mark queries as stale and fetch them.
+```tsx
+// Invalidate every query in the cache
+queryClient.invalidateQueries()
+// Invalidate every query with a key that starts with `todos`
+queryClient.invalidateQueries({ queryKey: ['todos'] })
 ```
