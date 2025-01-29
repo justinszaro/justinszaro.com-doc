@@ -43,7 +43,7 @@ const App = () => (
   </div>
 );
 ```
-- The route will render `<Dashboard {...props}/> which is where props are specific router things `{ match, location, history }`
+- The route will render `<Dashboard {...props}/>` which is where props are specific router things `{ match, location, history }`
 - If the user is not at the dashboard, null will be rendered.
 
 ### Nested Routes
