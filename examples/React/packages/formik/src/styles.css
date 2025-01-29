@@ -649,3 +649,22 @@
     margin-top: 1rem;
   }
   
+  /* Add your styles here */
+  .error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 0.25em;
+  }
+  
+  .checkbox-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .text-input {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    display: block;
+  }
+  

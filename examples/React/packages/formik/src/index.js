@@ -1,6 +1,5 @@
 import React from "react";
 import { Formik, Form, useField } from "formik";
-import "./styles.css";
 import { createRoot } from "react-dom/client";
 import * as Yup from "yup";
 
