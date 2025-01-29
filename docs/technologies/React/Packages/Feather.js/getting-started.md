@@ -878,3 +878,6 @@ export const authentication = (app: Application) => {
   app.configure(oauth())
 }
 ```
+
+## Extensions
+- There are a ton of [common feather hooks](https://hooks-common.feathersjs.com/hooks.html) in this package.
