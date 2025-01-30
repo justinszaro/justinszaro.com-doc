@@ -96,7 +96,7 @@ main()
 - Feather Transports allows for the created as an API server instead of a simple node.js script.
 - In the nest example, the following packages are used:
   - `@feathersjs/koa` - which uses [KoaJS](https://koajs.com/) to turn the service into a REST Api.
-  - `@feathersjs/socketio` - Uses Socker.io to do the same functionality as a WebSocket.
+  - `@feathersjs/socketio` - Uses Socket.io to do the same functionality as a WebSocket.
 - Here is the install command:
 ```sh
 npm install @feathersjs/socketio @feathersjs/koa --save
@@ -182,7 +182,7 @@ app.service('messages').create({
 ### In the browser
 - Feathers works the exact same in a web browser.
 - We can create a website that talks to the feathers.js app message service using the real time socket.io connection.
-- Add the following code into an HMTL file.
+- Add the following code into an HTML file.
 ```html
 <!DOCTYPE html>
 <html lang="en">
