@@ -1,0 +1,68 @@
+p {
+    color: olive;
+    font-size: 26px;
+
+}
+header {
+    background-color: orange;
+}
+header p {
+    background-color: snow;
+    border-bottom: 1px solid gray;
+}
+footer {
+    background-color: lightcoral;
+}
+a:link {
+    color: darkblue;
+    background-color: peachpuff;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:visited {
+    color: seagreen;
+}
+a:focus {
+    color: white;
+    background-color: orange;
+}
+ol li {
+    letter-spacing: 3px;
+    color: tomato;
+}
+ol li:first-child {
+    font-weight: bold;
+}
+ul li {
+    list-style: none;
+}
+#education {
+    border: 3px solid red;
+}
+#educational h3 {
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+}
+#skills-list {
+    background-color: aliceblue;
+    padding: 36px;
+}
+.top-skills {
+    font-weight: bold;
+    background-color: teal;
+    color: papayawhip;
+}
+.date {
+    border: 2px solid steelblue;
+    border-radius: 12px;
+    padding: 6px;
+}
+.special {
+    text-transform: uppercase;
+    background-color: papayawhip;
+}
+#proud {
+    font-size: 48px;
+}
