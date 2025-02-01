@@ -1,3 +1,10 @@
+---
+id: Wordpress DRY Development Techniques
+tags:
+  - php
+  - wordpress
+---
+
 ## Some cool thing I didn’t know:
 
 `get_header(), get_footer(), get_sidebar()` - Will get the respective template files. For example: `get_header()` will get `header.php`. 

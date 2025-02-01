@@ -1,3 +1,11 @@
+---
+id: Common Table Expressions
+tags:
+  - mysql
+  - common table expression
+  - cte
+---
+
 What is a Common Table Expression?:
 
 * Most popular databases support CTEs: Oracle, SQL Server, SQLite, and MySQL  

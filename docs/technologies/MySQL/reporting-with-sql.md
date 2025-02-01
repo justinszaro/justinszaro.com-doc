@@ -1,4 +1,8 @@
-
+---
+id: Reporting with SQL
+tags:
+  - mysql
+---
 
 | SELECT \<columns\> FROM \<table\> ORDER BY \<column\>; | Order the results of the query in ascending order by the column named. You can also add the ASC and DESC to change the order.  |
 | :---- | :---- |

@@ -1,3 +1,11 @@
+---
+id: Wordpress Action and Filter Hooks
+tags:
+  - php
+  - wordpress
+  - hooks
+---
+
 # WordPress Hooks and Filters
 
 - `has_action()`: Checks if any action has been registered to a hook.

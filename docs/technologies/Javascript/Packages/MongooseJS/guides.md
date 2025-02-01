@@ -1,3 +1,10 @@
+---
+id: Mongoose Guides
+tags:
+  - javascript
+  - mongoose
+---
+
 # Mongoose Guides
 
 [Documentation](https://mongoosejs.com/docs/index.html)

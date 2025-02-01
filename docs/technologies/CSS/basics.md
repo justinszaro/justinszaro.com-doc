@@ -1,3 +1,10 @@
+---
+id: CSS Basics
+tags:
+  - styling
+  - css
+---
+
 Documentation Link: [https://developer.mozilla.org/en-US/docs/Web/CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 | background-color | Changes the color of the background. |

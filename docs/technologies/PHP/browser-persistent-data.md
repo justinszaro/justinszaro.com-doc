@@ -1,4 +1,8 @@
-
+---
+id: Browser Persistent Data
+tags:
+  - php
+---
 
 | session\_start() | Checks if a session has been posted. |
 | :---- | :---- |

@@ -1,3 +1,11 @@
+---
+id: Wordpress Child Themes
+tags:
+  - php
+  - wordpress
+  - themes
+---
+
 # Building a WordPress Child Theme
 
 ## Introduction

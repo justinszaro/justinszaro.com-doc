@@ -1,4 +1,8 @@
-
+---
+id: Querying Relational Databases
+tags:
+  - mysql
+---
 
 | SELECT \<columns\> FROM \<table1\> INNER JOIN \<table2\> ON \<equality criteria\> WHERE \<search criteria\>; | Inner join two tables together by using equality criteria.  |
 | :---- | :---- |

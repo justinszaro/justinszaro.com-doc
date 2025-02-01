@@ -1,4 +1,8 @@
-
+---
+id: PHP File Handling
+tags:
+  - php
+---
 
 | scandir(‘path’) | Will scan the files in the requesting directory. Will only do the first level.  |
 | :---- | :---- |

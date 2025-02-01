@@ -1,4 +1,8 @@
-
+---
+id: Modifying Data With MySql
+tags:
+  - mysql
+---
 
 | INSERT INTO \<table\> VALUES (\<value1\>, \<value2\>, \<value3\>, ….); | Insert data into a table.  |
 | :---- | :---- |

@@ -1,3 +1,9 @@
+---
+id: Javascript Introduction
+tags:
+  - javascript
+---
+
 Welcome to Programming
 
 * Recall that PNGs are graphic files. 

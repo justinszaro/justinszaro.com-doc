@@ -1,4 +1,9 @@
-
+---
+id: HTML 5
+tags:
+  - html
+  - html5
+---
 
 | \<\!DOCTYPE html\> | Declaration for an HTML Document |
 | :---- | :---- |

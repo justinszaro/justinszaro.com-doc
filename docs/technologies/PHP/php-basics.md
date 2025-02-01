@@ -1,4 +1,8 @@
-
+---
+id: PHP Basics
+tags:
+  - php
+---
 
 | \<?php CODE ?\> | Tag around PHP code. |
 | :---- | :---- |

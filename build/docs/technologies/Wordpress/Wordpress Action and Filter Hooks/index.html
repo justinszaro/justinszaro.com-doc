@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-technologies/Wordpress/Wordpress Action and Filter Hooks" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">WordPress Hooks and Filters | Documentation &amp; Notes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.justinszaro.com/docs/technologies/Wordpress/Wordpress Action and Filter Hooks"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="WordPress Hooks and Filters | Documentation &amp; Notes"><meta data-rh="true" name="description" content="- has_action(): Checks if any action has been registered to a hook."><meta data-rh="true" property="og:description" content="- has_action(): Checks if any action has been registered to a hook."><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://docs.justinszaro.com/docs/technologies/Wordpress/Wordpress Action and Filter Hooks"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/Wordpress/Wordpress Action and Filter Hooks" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/Wordpress/Wordpress Action and Filter Hooks" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.461f3ee9.css">
+<script src="/assets/js/runtime~main.74eb53f5.js" defer="defer"></script>
+<script src="/assets/js/main.8c386e1d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Documentation</b></a><a class="navbar__item navbar__link" href="/docs/projects/">Projects</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/technologies/CSS/CSS Basics">Technologies</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/justinszaro" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/CSS/CSS Basics">CSS</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/General/Intro to Design Thinking">General</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/Git/Git Useful Commands">Git</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/HTML/HTML Form Basics">HTML</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/technologies/Javascript/">Javascript</a><button aria-label="Expand sidebar category &#x27;Javascript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/MySQL/Common Table Expressions">MySQL</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/PHP/PHP Basics">PHP</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/React/Packages/EasyPeasy/tutorials">React</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/technologies/Wordpress/Wordpress Action and Filter Hooks">Wordpress</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Action and Filter Hooks">WordPress Hooks and Filters</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Advanced Action and Filter Hooks">Wordpress Advanced Action and Filter Hooks</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Child Themes">Building a WordPress Child Theme</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Custom Post Types and Taxonomies">Custom Post Types and Taxonomies:</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress DRY Development Techniques">Wordpress DRY Development Techniques</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Building Child Themes">Wordpress Building Child Themes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Plugin Development">WordPress Plugin Development</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Working with GET and POST">Introducing Superglobals $_GET and $_POST</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Wordpress</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">WordPress Hooks and Filters</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>WordPress Hooks and Filters</h1></header>
+<ul>
+<li><code>has_action()</code>: Checks if any action has been registered to a hook.</li>
+<li><code>add_action()</code>: Hooks a function onto a specific action.</li>
+<li><code>do_action()</code>: Drops a bookmark in the code for later action hooking.</li>
+<li><code>remove_action()</code>: Removes an action from a specific hook.</li>
+<li><code>has_filter()</code>: Checks if any filters have been registered for a hook.</li>
+<li><code>add_filter()</code>: Hooks into a specific filter.</li>
+<li><code>apply_filters()</code>: Calls all functions registered on a particular hook.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="wordpress-basics">WordPress Basics<a href="#wordpress-basics" class="hash-link" aria-label="Direct link to WordPress Basics" title="Direct link to WordPress Basics">​</a></h2>
+<ul>
+<li>WordPress is open-source software built on PHP and MySQL.</li>
+<li>Fully-featured content management system.</li>
+<li>Two versions: Self-hosted (download, complete control) and Hosted (wordpress.com).</li>
+<li>Developers interact via Themes (visual layer) and Plugins (additional functionality).</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="plugin-api-overview">Plugin API Overview<a href="#plugin-api-overview" class="hash-link" aria-label="Direct link to Plugin API Overview" title="Direct link to Plugin API Overview">​</a></h2>
+<ul>
+<li>Plugins extend WordPress functionality without modifying the base code.</li>
+<li>A plugin is a set of PHP functions adding specific features or services.</li>
+<li>Plugin API consists of hooks and filter hooks.</li>
+<li>Hooks latch onto WordPress at specific points during runtime.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="action-hooks">Action Hooks<a href="#action-hooks" class="hash-link" aria-label="Direct link to Action Hooks" title="Direct link to Action Hooks">​</a></h3>
+<ul>
+<li>Actions and filters are two kinds of hooks.</li>
+<li>Common action functions: <code>has_action()</code>, <code>add_action()</code>, <code>do_action()</code>, <code>remove_action()</code>.</li>
+<li>Actions run during typical page requests.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="filter-hooks">Filter Hooks<a href="#filter-hooks" class="hash-link" aria-label="Direct link to Filter Hooks" title="Direct link to Filter Hooks">​</a></h3>
+<ul>
+<li>Filters modify input and return it.</li>
+<li>Similar to action functions.</li>
+<li>Basic filter functions: <code>has_filter()</code>, <code>add_filter()</code>, <code>apply_filters()</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="priorities-arguments-and-customization">Priorities, Arguments, and Customization<a href="#priorities-arguments-and-customization" class="hash-link" aria-label="Direct link to Priorities, Arguments, and Customization" title="Direct link to Priorities, Arguments, and Customization">​</a></h2>
+<ul>
+<li>Priorities specify the order of action function execution.</li>
+<li>Lower numbers execute earlier.</li>
+<li>Functions with the same priority execute in order of addition.</li>
+<li>Arguments are data passed to a function. Default is 1.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="customizing-the-wordpress-login-page">Customizing the WordPress Login Page<a href="#customizing-the-wordpress-login-page" class="hash-link" aria-label="Direct link to Customizing the WordPress Login Page" title="Direct link to Customizing the WordPress Login Page">​</a></h2>
+<ul>
+<li>Plugins should be written within the WordPress installation.</li>
+<li>Include a header on custom plugins.</li>
+<li>Basic info needed: Plugin Name, Version, Author, License, Text Domain.</li>
+<li>Plugins need activation within WordPress.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="adding-a-custom-stylesheet">Adding a Custom Stylesheet<a href="#adding-a-custom-stylesheet" class="hash-link" aria-label="Direct link to Adding a Custom Stylesheet" title="Direct link to Adding a Custom Stylesheet">​</a></h3>
+<ul>
+<li><code>wp-login.php</code> powers the WordPress login page.</li>
+<li><code>do_action( &#x27;login_enqueue_scripts&#x27; )</code> sets login page styles.</li>
+<li>Care needed to avoid function name conflicts.</li>
+<li><code>wp_enqueue_style()</code> registers the style source.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="filtering-login-error-messages">Filtering Login Error Messages<a href="#filtering-login-error-messages" class="hash-link" aria-label="Direct link to Filtering Login Error Messages" title="Direct link to Filtering Login Error Messages">​</a></h3>
+<ul>
+<li>Login error message confirms valid username.</li>
+<li><code>login-errors</code> hook supplies built-in error messages.</li>
+<li>Add a function as a filter to change the message.</li>
+<li><code>__return_null</code> returns a null value when used with a filter.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="removing-the-login-page-shake">Removing the Login Page Shake<a href="#removing-the-login-page-shake" class="hash-link" aria-label="Direct link to Removing the Login Page Shake" title="Direct link to Removing the Login Page Shake">​</a></h3>
+<ul>
+<li>Login page shakes on incorrect credentials.</li>
+<li><code>login_head</code> hook controls shaking behavior.</li>
+<li><code>add_action( &#x27;login_head&#x27;, &#x27;wp_shake_js&#x27;, 12 )</code> triggers the shake.</li>
+<li>To remove, wrap in another function and call using <code>add_action()</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="wordpress-hooks-filters-and-load-order">WordPress Hooks, Filters, and Load Order<a href="#wordpress-hooks-filters-and-load-order" class="hash-link" aria-label="Direct link to WordPress Hooks, Filters, and Load Order" title="Direct link to WordPress Hooks, Filters, and Load Order">​</a></h2>
+<ul>
+<li>Navigating documentation is powerful.</li>
+<li>Documentation covers plugin creation basics, naming conventions, and translation readiness.</li>
+<li>Plugin API has documentation on hooks and filters.</li>
+<li>Debug bar plugin provides detailed page load information.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="load-order">Load Order<a href="#load-order" class="hash-link" aria-label="Direct link to Load Order" title="Direct link to Load Order">​</a></h3>
+<ul>
+<li>Actions are listed in order of execution.</li>
+<li>Inject code at the appropriate point.</li>
+<li><code>rarst.net/wordpress/wordpress-core-load/</code> displays load order charts.</li>
+<li><code>query monitor</code> plugin offers detailed loading info for debugging.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="understanding-callback-functions">Understanding Callback Functions<a href="#understanding-callback-functions" class="hash-link" aria-label="Direct link to Understanding Callback Functions" title="Direct link to Understanding Callback Functions">​</a></h2>
+<ul>
+<li>Callback functions are passed as arguments.</li>
+<li><code>add_action()</code> uses a callback function as the second argument.</li>
+<li><code>pre_get_post</code> action provides access to the <code>$query</code> object.</li>
+<li>Documentation states when it&#x27;s too late to hook an action.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="using-apply-filters">Using Apply Filters<a href="#using-apply-filters" class="hash-link" aria-label="Direct link to Using Apply Filters" title="Direct link to Using Apply Filters">​</a></h2>
+<ul>
+<li><code>apply_filters()</code> calls functions added to the filter hook.</li>
+<li>Takes three parameters: <code>$tag</code>, <code>$value</code>, and <code>$var</code>.</li>
+<li>Example: <code>$value = apply_filters( &#x27;example_filter&#x27;, &#x27;filter_me&#x27;, $arg1, $arg2 )</code>.</li>
+<li><code>array_merge()</code> merges two arrays.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="wp_hook-vs-wp_filter">WP_Hook vs $wp_filter<a href="#wp_hook-vs-wp_filter" class="hash-link" aria-label="Direct link to WP_Hook vs $wp_filter" title="Direct link to WP_Hook vs $wp_filter">​</a></h2>
+<ul>
+<li>WordPress hooks and callback functions are stored in <code>$wp_filter</code>.</li>
+<li>WP_Hook class resolves recursive callback issues.</li>
+<li>Direct access to WP_Hook or $wp_filter is usually unnecessary.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="adding-custom-hooks">Adding Custom Hooks<a href="#adding-custom-hooks" class="hash-link" aria-label="Direct link to Adding Custom Hooks" title="Direct link to Adding Custom Hooks">​</a></h2>
+<ul>
+<li>Create hooks in plugins for interaction.</li>
+<li>Use <code>apply_filters()</code> and <code>do_action()</code> functions.</li>
+<li>Be intentional; changing hooks can break compatibility.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="inside-themes-and-plugins-with-hooks">Inside Themes and Plugins with Hooks<a href="#inside-themes-and-plugins-with-hooks" class="hash-link" aria-label="Direct link to Inside Themes and Plugins with Hooks" title="Direct link to Inside Themes and Plugins with Hooks">​</a></h2>
+<ul>
+<li>Popular themes and plugins come with their hooks.</li>
+<li>Documentation may vary for less popular ones.</li>
+<li>Some documentation may be locked behind logins.</li>
+<li>GitHub may have additional information.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tips-for-using-third-party-hooks">Tips for Using Third-Party Hooks<a href="#tips-for-using-third-party-hooks" class="hash-link" aria-label="Direct link to Tips for Using Third-Party Hooks" title="Direct link to Tips for Using Third-Party Hooks">​</a></h2>
+<ul>
+<li>Display an error if plugins are missing dependencies.</li>
+<li>Codebase of plugins in wordpress.org is accessible.</li>
+<li>Name plugin files after their folder structure.</li>
+<li>Exit if plugin file is accessed directly.</li>
+<li>Check for parent plugin existence.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="building-a-demo-plugin">Building a Demo Plugin<a href="#building-a-demo-plugin" class="hash-link" aria-label="Direct link to Building a Demo Plugin" title="Direct link to Building a Demo Plugin">​</a></h2>
+<ul>
+<li>For security, kill plugin if accessed directly.</li>
+<li><code>register_sidebar()</code> builds a sidebar definition.</li>
+<li><code>dynamic_sidebar()</code> displays a sidebar.</li>
+<li><code>wp_enqueue_scripts</code> styles the front page.</li>
+<li>WordPress conditionals manage display.</li>
+<li>Provide option to disable style choices.</li>
+<li>Stay updated with WordPress development at makewordpress.org.</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/php">php</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/wordpress">wordpress</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/hooks">hooks</a></li></ul></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/technologies/React/react-intro"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">react-intro</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/technologies/Wordpress/Wordpress Advanced Action and Filter Hooks"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Wordpress Advanced Action and Filter Hooks</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#wordpress-basics" class="table-of-contents__link toc-highlight">WordPress Basics</a></li><li><a href="#plugin-api-overview" class="table-of-contents__link toc-highlight">Plugin API Overview</a><ul><li><a href="#action-hooks" class="table-of-contents__link toc-highlight">Action Hooks</a></li><li><a href="#filter-hooks" class="table-of-contents__link toc-highlight">Filter Hooks</a></li></ul></li><li><a href="#priorities-arguments-and-customization" class="table-of-contents__link toc-highlight">Priorities, Arguments, and Customization</a></li><li><a href="#customizing-the-wordpress-login-page" class="table-of-contents__link toc-highlight">Customizing the WordPress Login Page</a><ul><li><a href="#adding-a-custom-stylesheet" class="table-of-contents__link toc-highlight">Adding a Custom Stylesheet</a></li><li><a href="#filtering-login-error-messages" class="table-of-contents__link toc-highlight">Filtering Login Error Messages</a></li><li><a href="#removing-the-login-page-shake" class="table-of-contents__link toc-highlight">Removing the Login Page Shake</a></li></ul></li><li><a href="#wordpress-hooks-filters-and-load-order" class="table-of-contents__link toc-highlight">WordPress Hooks, Filters, and Load Order</a><ul><li><a href="#load-order" class="table-of-contents__link toc-highlight">Load Order</a></li></ul></li><li><a href="#understanding-callback-functions" class="table-of-contents__link toc-highlight">Understanding Callback Functions</a></li><li><a href="#using-apply-filters" class="table-of-contents__link toc-highlight">Using Apply Filters</a></li><li><a href="#wp_hook-vs-wp_filter" class="table-of-contents__link toc-highlight">WP_Hook vs $wp_filter</a></li><li><a href="#adding-custom-hooks" class="table-of-contents__link toc-highlight">Adding Custom Hooks</a></li><li><a href="#inside-themes-and-plugins-with-hooks" class="table-of-contents__link toc-highlight">Inside Themes and Plugins with Hooks</a></li><li><a href="#tips-for-using-third-party-hooks" class="table-of-contents__link toc-highlight">Tips for Using Third-Party Hooks</a></li><li><a href="#building-a-demo-plugin" class="table-of-contents__link toc-highlight">Building a Demo Plugin</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Justin Szaro. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

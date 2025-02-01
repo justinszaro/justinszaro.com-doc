@@ -1,3 +1,10 @@
+---
+id: PHP and MySQL
+tags:
+  - php
+  - mysql
+---
+
 # PDO Basics
 
 ```php

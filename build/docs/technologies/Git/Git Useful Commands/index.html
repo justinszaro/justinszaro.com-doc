@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-technologies/Git/Git Useful Commands" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Other Useful Commands | Documentation &amp; Notes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.justinszaro.com/docs/technologies/Git/Git Useful Commands"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Other Useful Commands | Documentation &amp; Notes"><meta data-rh="true" name="description" content="git log"><meta data-rh="true" property="og:description" content="git log"><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://docs.justinszaro.com/docs/technologies/Git/Git Useful Commands"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/Git/Git Useful Commands" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/Git/Git Useful Commands" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.461f3ee9.css">
+<script src="/assets/js/runtime~main.74eb53f5.js" defer="defer"></script>
+<script src="/assets/js/main.8c386e1d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Documentation</b></a><a class="navbar__item navbar__link" href="/docs/projects/">Projects</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/technologies/CSS/CSS Basics">Technologies</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/justinszaro" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/CSS/CSS Basics">CSS</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/General/Intro to Design Thinking">General</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/technologies/Git/Git Useful Commands">Git</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/technologies/Git/Git Useful Commands">Other Useful Commands</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Git/Git + Github">Git + Github</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Git/Other Useful Github Commands">Other Useful Commands</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/HTML/HTML Form Basics">HTML</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/technologies/Javascript/">Javascript</a><button aria-label="Expand sidebar category &#x27;Javascript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/MySQL/Common Table Expressions">MySQL</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/PHP/PHP Basics">PHP</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/React/Packages/EasyPeasy/tutorials">React</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/Wordpress/Wordpress Action and Filter Hooks">Wordpress</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Git</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Other Useful Commands</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Other Useful Commands</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="git-log">git log<a href="#git-log" class="hash-link" aria-label="Direct link to git log" title="Direct link to git log">​</a></h2>
+<ul>
+<li>Shows a list of commits, who committed them, and their commit message.</li>
+<li>Usage: <code>git log origin/main</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="git-show">git show<a href="#git-show" class="hash-link" aria-label="Direct link to git show" title="Direct link to git show">​</a></h2>
+<ul>
+<li>Shows the log message and the text difference between your current branch and the specified branch.</li>
+<li>Usage: <code>git show origin/main</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="git-reset">git reset<a href="#git-reset" class="hash-link" aria-label="Direct link to git reset" title="Direct link to git reset">​</a></h2>
+<ul>
+<li>Reverts back to the master branch and deletes changes.</li>
+<li>Usage: <code>git reset -hard origin/master</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="git-branch">git branch<a href="#git-branch" class="hash-link" aria-label="Direct link to git branch" title="Direct link to git branch">​</a></h2>
+<ul>
+<li>Deletes a local branch.</li>
+<li>Usage: <code>git branch -d branch_name</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="git-push">git push<a href="#git-push" class="hash-link" aria-label="Direct link to git push" title="Direct link to git push">​</a></h2>
+<ul>
+<li>Deletes a remote branch.</li>
+<li>Usage: <code>git push -d origin branch_name</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="git-switch">git switch<a href="#git-switch" class="hash-link" aria-label="Direct link to git switch" title="Direct link to git switch">​</a></h2>
+<ul>
+<li>Creates a new branch and switches to it (different from checkout?).</li>
+<li>Usage: <code>git switch -c new_branch</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="forcing-push-to-a-remote">Forcing Push to a Remote<a href="#forcing-push-to-a-remote" class="hash-link" aria-label="Direct link to Forcing Push to a Remote" title="Direct link to Forcing Push to a Remote">​</a></h2>
+<ul>
+<li>To perform a force push:<!-- -->
+<ul>
+<li>Usage: <code>git push -f branchname</code> or <code>git push -force branchname</code></li>
+</ul>
+</li>
+<li>Warning: This will undue the commits of fellow collaborators.</li>
+<li>Always let your collaborators know before doing a force push (will overwrite changes and history).</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="identify-merge-branches">Identify Merge Branches<a href="#identify-merge-branches" class="hash-link" aria-label="Direct link to Identify Merge Branches" title="Direct link to Identify Merge Branches">​</a></h2>
+<ul>
+<li>Allows you to list branches that have been merged into a branch.</li>
+<li>Useful for knowing what features have been fully incorporated.</li>
+<li>Useful for cleanup after merging multiple different features.</li>
+<li>Uses the current branch as default.</li>
+<li>Can specify a branch or a remote branch instead.</li>
+<li>Usage:<!-- -->
+<ul>
+<li><code>git branch -merged</code> - List any branches that have been merged into master.</li>
+<li><code>git branch -no-merged</code> - List any branches that have not been merged into master.</li>
+<li><code>git branch -r -merged</code> - List any remote branches that have not been merged.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pruning-stale-branches">Pruning Stale Branches<a href="#pruning-stale-branches" class="hash-link" aria-label="Direct link to Pruning Stale Branches" title="Direct link to Pruning Stale Branches">​</a></h2>
+<ul>
+<li>Deletes all the stale branches.</li>
+<li>Stale branch - a remote-tracking branch that no longer tracks anything because the actual branch in the remote repository has been deleted.</li>
+<li>Deleting a remote branch also deleted the remote-tracking branch too.</li>
+<li>If someone else deleted a remote branch, your remote-tracking branch remains.</li>
+<li>This requires you to prune the branch manually.</li>
+<li>You can fetch and prune at the same time.</li>
+<li>Usage:<!-- -->
+<ul>
+<li><code>git remote prune origin</code> - Prunes the stale remote-tracking branches.</li>
+<li><code>git remote prune origin -dry-run</code> - Displays which branches would be pruned if you were to run the command again.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="creating-and-deleting-tags">Creating and Deleting Tags<a href="#creating-and-deleting-tags" class="hash-link" aria-label="Direct link to Creating and Deleting Tags" title="Direct link to Creating and Deleting Tags">​</a></h2>
+<ul>
+<li>Tagging allows you to mark points in history as important.</li>
+<li>It creates a named reference to a commit.</li>
+<li>It is most frequently used to make software release versions (v1.0, v1.1, v2.0).</li>
+<li>Can mark key features or changes (ecommerce, redesign).</li>
+<li>Can mark points for discussions (bugs/issues).</li>
+<li>Usage:<!-- -->
+<ul>
+<li><code>git tag tag_name SHA(commit_id)</code> - Adds a lightweight tag.</li>
+<li><code>git tag -am &quot;message&quot; tag_name SHA(commit_id)</code> - Adds an annotated tag, which is the most common and allows you to include a message.</li>
+<li><code>git tag (-d / -delete) tag_name</code> - Deletes a tag.</li>
+<li><code>git tag (-l / -list)</code> - Return a list of all of your tags.</li>
+<li><code>git tag -l &quot;filter&quot;</code> - Returns a list of strings that match the given filter. * is the wildcard character.</li>
+<li><code>git tag -n3</code> - Return a list of tags with their annotations.</li>
+<li><code>git push origin tag_name</code> - Push a tag up to the remote repository.</li>
+<li><code>git push origin -tags</code> - Push all of your tags up to the related repository.</li>
+<li><code>git fetch -tags</code> - Fetch only tags (with necessary commits).</li>
+<li><code>git push -d origin tag_name</code> - Deletes a remote tag.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="interactive-mode">Interactive Mode<a href="#interactive-mode" class="hash-link" aria-label="Direct link to Interactive Mode" title="Direct link to Interactive Mode">​</a></h2>
+<ul>
+<li>Stage changes interactively.</li>
+<li>Allows staging only portions of changed files.</li>
+<li>Helps to make smaller, more focused commits.</li>
+<li>Feature of many Git GUI tools.</li>
+<li>Usage: <code>git add (-t / -interactive)</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="patch-mode">Patch Mode<a href="#patch-mode" class="hash-link" aria-label="Direct link to Patch Mode" title="Direct link to Patch Mode">​</a></h2>
+<ul>
+<li>Allows staging only portions of a changed file.</li>
+<li>“Hunk”: an area where two files differ.</li>
+<li>Hunks can be staged, skipped, or split into smaller hunks.</li>
+<li>This is done in interactive mode.</li>
+<li>Patch mode is also available from normal git add.</li>
+<li>Patch mode can also be used for stash, reset, restore, and commit.</li>
+<li>Usage: <code>git add (-patch / -p)</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="split-a-hunk">Split a Hunk<a href="#split-a-hunk" class="hash-link" aria-label="Direct link to Split a Hunk" title="Direct link to Split a Hunk">​</a></h2>
+<ul>
+<li>Hunks can contain multiple changes.</li>
+<li>Tell git to try to split a hunk further.</li>
+<li>There must be one or more unchanged lines between changes to split a hunk.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="edit-a-hunk">Edit a Hunk<a href="#edit-a-hunk" class="hash-link" aria-label="Direct link to Edit a Hunk" title="Direct link to Edit a Hunk">​</a></h2>
+<ul>
+<li>Hunks can be edited manually.</li>
+<li>Useful when a hunk cannot be split automatically.</li>
+<li>Edits are done using the Diff-style line prefixes: +, -, space.</li>
+<li>When editing, you need to make the final product look like an actual diff file.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="share-select-changes">Share Select Changes<a href="#share-select-changes" class="hash-link" aria-label="Direct link to Share Select Changes" title="Direct link to Share Select Changes">​</a></h2>
+<ul>
+<li>Cherry picking commits applies the changes from one or more existing commits.</li>
+<li>Each commit targeted will become a new commit on the current branch.</li>
+<li>Conceptually similar to copy and paste.</li>
+<li>New commits have different SHAs.</li>
+<li>You can cherry-pick commits from any branch.</li>
+<li>You cannot cherry-pick a merge commit.</li>
+<li>The -e or –edit options will allow you to edit the commit message instead of accepting it as is.</li>
+<li>Cherry Picking can cause conflicts.</li>
+<li>Usage: <code>git cherry-pick SHA (SHA..SHA)</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="diff-patches">Diff Patches<a href="#diff-patches" class="hash-link" aria-label="Direct link to Diff Patches" title="Direct link to Diff Patches">​</a></h2>
+<ul>
+<li>Share changes via files.</li>
+<li>Useful when changes are not ready for a public branch.</li>
+<li>Useful when collaborators do not share a remote.</li>
+<li>Discussion, review, approval processes.</li>
+<li>Usage: <code>git diff from-commit to-commit &gt; output.diff</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="apply-diff-patches">Apply Diff Patches<a href="#apply-diff-patches" class="hash-link" aria-label="Direct link to Apply Diff Patches" title="Direct link to Apply Diff Patches">​</a></h2>
+<ul>
+<li>Applies changes in a diff patch file to the working directory.</li>
+<li>Makes changes but it does not commit them.</li>
+<li>No commit history is transferred.</li>
+<li>Git apply does not return any information on what happened.</li>
+<li>Usage: <code>git apply output.diff</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="creating-formatted-patches">Creating Formatted Patches<a href="#creating-formatted-patches" class="hash-link" aria-label="Direct link to Creating Formatted Patches" title="Direct link to Creating Formatted Patches">​</a></h2>
+<ul>
+<li>Export each commit in the Unix mailbox format.</li>
+<li>Useful for email distribution of changes.</li>
+<li>Includes the commit messages and some meta information.</li>
+<li>-o file_path is a switch that will output the patch file to a certain directory.</li>
+<li>–stdout &gt; feature.patch will output the entire formatted patch to a single file.</li>
+<li>The files will be numbered so that they are applied in the correct order.</li>
+<li>Usage: <code>git format-patch SHA..SHA</code> or <code>git format-patch -1 SHA</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="apply-formatted-patches">Apply Formatted Patches<a href="#apply-formatted-patches" class="hash-link" aria-label="Direct link to Apply Formatted Patches" title="Direct link to Apply Formatted Patches">​</a></h2>
+<ul>
+<li>Extracts author, commit message, and changes from a mailbox message and apply them to the current branch.</li>
+<li>Similar to cherry-picking: same changes but with different SHAs.</li>
+<li>Usage: <code>git am directory/0001-some-name.patch</code> or <code>git am directory/*.patch</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="rebase-commits">Rebase Commits<a href="#rebase-commits" class="hash-link" aria-label="Direct link to Rebase Commits" title="Direct link to Rebase Commits">​</a></h2>
+<ul>
+<li>Take commits from a branch and replay them at another point, most often at the end of another branch.</li>
+<li>Useful to integrate recent commits without merging.</li>
+<li>Maintains a cleaner, more linear project history.</li>
+<li>Ensures topic branch commits apply cleanly.</li>
+<li>It moves the working-branch to the tip of the main branch.</li>
+<li>The SHAs will change.</li>
+<li>You can rebase onto other branches as well.</li>
+<li>Rebasing commits may conflict with already existing code.</li>
+<li>Git pauses rebase before each conflicting commit.</li>
+<li>Very similar to resolving merge conflicts.</li>
+<li>–skip will skip that commit.</li>
+<li>–abort will abort the rebase altogether.</li>
+<li>Usage: <code>git rebase main</code> or <code>git rebase -onto newbase upstream branch</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="merging-vs-rebasing">Merging vs. Rebasing<a href="#merging-vs-rebasing" class="hash-link" aria-label="Direct link to Merging vs. Rebasing" title="Direct link to Merging vs. Rebasing">​</a></h2>
+<ul>
+<li>Both ways to incorporate changes from one branch into another branch.</li>
+<li>Similar ends but the means are totally different.</li>
+<li>Side effects are important to understand.</li>
+<li>Merging:<!-- -->
+<ul>
+<li>Adds a merge commit each time.</li>
+<li>Nondesctructive.</li>
+<li>Complete record of what happened and when.</li>
+<li>Easier to undo.</li>
+<li>Logs can become cluttered and nonlinear.</li>
+</ul>
+</li>
+<li>Rebasing:<!-- -->
+<ul>
+<li>No additional merge commit.</li>
+<li>Destructive: SHA changes, commits are rewritten.</li>
+<li>No longer a complete record of what happened when.</li>
+<li>Trickier to undo.</li>
+<li>DO NOT rebase on a public branch: will ruin collaborators work.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="interactive-rebasing">Interactive Rebasing<a href="#interactive-rebasing" class="hash-link" aria-label="Direct link to Interactive Rebasing" title="Direct link to Interactive Rebasing">​</a></h2>
+<ul>
+<li>Rebasing does have an interactive mode.</li>
+<li>Allows you to modify commits as they are being replayed.</li>
+<li>Opens the git-rebase-todo file for editing.</li>
+<li>Can reorder or skip commits.</li>
+<li>Can edit the commit contents.</li>
+<li>Can also allows you to edit the last few commits.</li>
+<li>This is destructive, so it should only be used in local branches.</li>
+<li>Usage: <code>git rebase -i main new_feature</code> or <code>git rebase -i HEAD~3</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="squash-commits">Squash Commits<a href="#squash-commits" class="hash-link" aria-label="Direct link to Squash Commits" title="Direct link to Squash Commits">​</a></h2>
+<ul>
+<li>Folds two or more commits into one.</li>
+<li>Squash will combine the change sets and concatenate the commit messages together.</li>
+<li>Fixup does the same thing, but discards the entire commit message.</li>
+<li>Squash will use the first author in the commit series as the author.</li>
+<li>Squashing is a great way to clean up the commit history for a rebase or to keep the history clean.</li>
+<li>This is destructive, so be careful!</li>
+<li>Usage: <code>git rebase -i HEAD~3</code> (allows you to squash the last three commits in the rebase interactive mode).</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pull-rebase">Pull Rebase<a href="#pull-rebase" class="hash-link" aria-label="Direct link to Pull Rebase" title="Direct link to Pull Rebase">​</a></h2>
+<ul>
+<li>You can also rebase a git pull.</li>
+<li>Fetch from remote, then rebase instead of merging.</li>
+<li>Keeps the history cleaner by reducing the number of merge commits.</li>
+<li>Only use on local commits not shared to a remote.</li>
+<li>Usage: <code>git pull (-r / --rebase)</code> or <code>git pull -rebase=preserve</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="log-options">Log Options<a href="#log-options" class="hash-link" aria-label="Direct link to Log Options" title="Direct link to Log Options">​</a></h2>
+<ul>
+<li>Log is the primary interface to Git.</li>
+<li>Log has many options.</li>
+<li>Log can sort, filter, and format output.</li>
+<li>Three very useful log commands:<!-- -->
+<ul>
+<li><code>git log filename.txt</code> - Will list a record of all the changes that have happened to that file.</li>
+<li><code>git log (-p/-patch)</code> - Lists the commits as patches, only showing the difference between files.</li>
+<li>Git Blame:<!-- -->
+<ul>
+<li>Browse annotated file.</li>
+<li>Determine who changed lines in a file and why.</li>
+<li>Useful for probing the history behind a files contents.</li>
+<li>Useful for identifying which commit introduced a bug.</li>
+<li>Usage:<!-- -->
+<ul>
+<li><code>git blame filename</code> - Annotate file with commit details.</li>
+<li><code>git blame -w filename</code> - -w ignores whitespace.</li>
+<li><code>git blame -L ###, ### filename</code> - Blame the file at the specified lines.</li>
+<li><code>git blame SHA filename</code> - Annotate the file at this commit.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="bisect">Bisect<a href="#bisect" class="hash-link" aria-label="Direct link to Bisect" title="Direct link to Bisect">​</a></h2>
+<ul>
+<li>Find the commit that introduced a bug or regression.</li>
+<li>Mark last good revision and first bad revision.</li>
+<li>Resets code to midpoint.</li>
+<li>Usage:<!-- -->
+<ul>
+<li><code>git bisect start</code> - Starts the bisect session.</li>
+<li><code>git bisect good branchname/SHA</code> - Marks the good version of the code.</li>
+<li><code>git bisect bad branchname/SHA</code> - Marks the bad version of the code.</li>
+<li><code>git bisect reset</code> - Will end the session and reset your code back to its original version.</li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/git">git</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/github">github</a></li></ul></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/technologies/General/Understanding Information Architecture"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Understanding Information Architecture</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/technologies/Git/Git + Github"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Git + Github</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#git-log" class="table-of-contents__link toc-highlight">git log</a></li><li><a href="#git-show" class="table-of-contents__link toc-highlight">git show</a></li><li><a href="#git-reset" class="table-of-contents__link toc-highlight">git reset</a></li><li><a href="#git-branch" class="table-of-contents__link toc-highlight">git branch</a></li><li><a href="#git-push" class="table-of-contents__link toc-highlight">git push</a></li><li><a href="#git-switch" class="table-of-contents__link toc-highlight">git switch</a></li><li><a href="#forcing-push-to-a-remote" class="table-of-contents__link toc-highlight">Forcing Push to a Remote</a></li><li><a href="#identify-merge-branches" class="table-of-contents__link toc-highlight">Identify Merge Branches</a></li><li><a href="#pruning-stale-branches" class="table-of-contents__link toc-highlight">Pruning Stale Branches</a></li><li><a href="#creating-and-deleting-tags" class="table-of-contents__link toc-highlight">Creating and Deleting Tags</a></li><li><a href="#interactive-mode" class="table-of-contents__link toc-highlight">Interactive Mode</a></li><li><a href="#patch-mode" class="table-of-contents__link toc-highlight">Patch Mode</a></li><li><a href="#split-a-hunk" class="table-of-contents__link toc-highlight">Split a Hunk</a></li><li><a href="#edit-a-hunk" class="table-of-contents__link toc-highlight">Edit a Hunk</a></li><li><a href="#share-select-changes" class="table-of-contents__link toc-highlight">Share Select Changes</a></li><li><a href="#diff-patches" class="table-of-contents__link toc-highlight">Diff Patches</a></li><li><a href="#apply-diff-patches" class="table-of-contents__link toc-highlight">Apply Diff Patches</a></li><li><a href="#creating-formatted-patches" class="table-of-contents__link toc-highlight">Creating Formatted Patches</a></li><li><a href="#apply-formatted-patches" class="table-of-contents__link toc-highlight">Apply Formatted Patches</a></li><li><a href="#rebase-commits" class="table-of-contents__link toc-highlight">Rebase Commits</a></li><li><a href="#merging-vs-rebasing" class="table-of-contents__link toc-highlight">Merging vs. Rebasing</a></li><li><a href="#interactive-rebasing" class="table-of-contents__link toc-highlight">Interactive Rebasing</a></li><li><a href="#squash-commits" class="table-of-contents__link toc-highlight">Squash Commits</a></li><li><a href="#pull-rebase" class="table-of-contents__link toc-highlight">Pull Rebase</a></li><li><a href="#log-options" class="table-of-contents__link toc-highlight">Log Options</a></li><li><a href="#bisect" class="table-of-contents__link toc-highlight">Bisect</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Justin Szaro. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

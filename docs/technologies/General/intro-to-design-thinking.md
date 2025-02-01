@@ -1,3 +1,9 @@
+---
+id: Intro to Design Thinking
+tags:
+  - design thinking
+---
+
 # Intro to Design Thinking
 
 #### Design Thinking Origins

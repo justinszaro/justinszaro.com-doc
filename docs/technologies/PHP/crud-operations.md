@@ -1,3 +1,10 @@
+---
+id: CRUD Operations
+tags:
+  - php
+  - mysql
+---
+
 What is CRUD?:
 
 * CRUD \- Create, remove, update, delete.  

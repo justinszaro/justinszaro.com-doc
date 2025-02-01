@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-technologies/Wordpress/Wordpress Plugin Development" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">WordPress Plugin Development | Documentation &amp; Notes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.justinszaro.com/docs/technologies/Wordpress/Wordpress Plugin Development"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="WordPress Plugin Development | Documentation &amp; Notes"><meta data-rh="true" name="description" content="| Command                                                                 | Description                                                                     |"><meta data-rh="true" property="og:description" content="| Command                                                                 | Description                                                                     |"><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://docs.justinszaro.com/docs/technologies/Wordpress/Wordpress Plugin Development"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/Wordpress/Wordpress Plugin Development" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/Wordpress/Wordpress Plugin Development" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.461f3ee9.css">
+<script src="/assets/js/runtime~main.74eb53f5.js" defer="defer"></script>
+<script src="/assets/js/main.8c386e1d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Documentation</b></a><a class="navbar__item navbar__link" href="/docs/projects/">Projects</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/technologies/CSS/CSS Basics">Technologies</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/justinszaro" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/CSS/CSS Basics">CSS</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/General/Intro to Design Thinking">General</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/Git/Git Useful Commands">Git</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/HTML/HTML Form Basics">HTML</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/technologies/Javascript/">Javascript</a><button aria-label="Expand sidebar category &#x27;Javascript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/MySQL/Common Table Expressions">MySQL</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/PHP/PHP Basics">PHP</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/React/Packages/EasyPeasy/tutorials">React</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/technologies/Wordpress/Wordpress Action and Filter Hooks">Wordpress</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Action and Filter Hooks">WordPress Hooks and Filters</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Advanced Action and Filter Hooks">Wordpress Advanced Action and Filter Hooks</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Child Themes">Building a WordPress Child Theme</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Custom Post Types and Taxonomies">Custom Post Types and Taxonomies:</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress DRY Development Techniques">Wordpress DRY Development Techniques</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Building Child Themes">Wordpress Building Child Themes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Plugin Development">WordPress Plugin Development</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Working with GET and POST">Introducing Superglobals $_GET and $_POST</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Wordpress</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">WordPress Plugin Development</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>WordPress Plugin Development</h1></header>
+<table><thead><tr><th style="text-align:left">Command</th><th style="text-align:left">Description</th></tr></thead><tbody><tr><td style="text-align:left"><code>wp_mail(&quot;email&quot;, &quot;subject&quot;, &quot;message&quot;)</code></td><td style="text-align:left">Allows you to send an email.</td></tr><tr><td style="text-align:left"><code>add_action(&quot;hook&quot;, &quot;callback function&quot;)</code></td><td style="text-align:left">Hooks an action.</td></tr><tr><td style="text-align:left"><code>add_filter(&#x27;hook&#x27;, &#x27;callback function&#x27;)</code></td><td style="text-align:left">Adds a filter to the designated hook, changing the content.</td></tr><tr><td style="text-align:left"><code>register_activation_hook(__FILE__, &quot;callback function&quot;)</code></td><td style="text-align:left">Runs when the plugin is activated</td></tr><tr><td style="text-align:left"><code>register_deactivation_hook(__FILE__, &quot;callback function&quot;)</code></td><td style="text-align:left">Runs when the plugin is deactivated</td></tr><tr><td style="text-align:left"><code>register_uninstall_hook()</code></td><td style="text-align:left">Runs when the plugin is uninstalled.</td></tr><tr><td style="text-align:left"><code>current_user_can(&#x27;action&#x27;)</code></td><td style="text-align:left">Checks if the current user has the permissions to perform the requested action.</td></tr><tr><td style="text-align:left"><code>add_option(&#x27;option&#x27;, value)</code></td><td style="text-align:left">Adds an option.</td></tr><tr><td style="text-align:left"><code>delete_option(&#x27;option&#x27;, value)</code></td><td style="text-align:left">Deletes the option</td></tr><tr><td style="text-align:left"><code>flush_rewrite_rules()</code></td><td style="text-align:left">Flushes the rewrite rules</td></tr><tr><td style="text-align:left"><code>wp_die(&quot;message&quot;)</code></td><td style="text-align:left">Good for debugging, will cause WordPress to die and a message to be shown.</td></tr><tr><td style="text-align:left"><code>function_exists()</code></td><td style="text-align:left">Checks if the named function exists.</td></tr><tr><td style="text-align:left"><code>wp_logout()</code></td><td style="text-align:left">Pluggable function that handles what happens when a user logs out.</td></tr><tr><td style="text-align:left"><code>is_email()</code></td><td style="text-align:left">Checks if an email is valid</td></tr><tr><td style="text-align:left"><code>term_exists()</code></td><td style="text-align:left">Checks if term exists</td></tr><tr><td style="text-align:left"><code>username_exists()</code></td><td style="text-align:left">Checks if the username exists</td></tr><tr><td style="text-align:left"><code>preg_match(&quot;regex&quot;, &quot;string&quot;)</code></td><td style="text-align:left">Checks if a string matches the pattern stated.</td></tr><tr><td style="text-align:left"><code>sanitize_email()</code></td><td style="text-align:left">Sanitizes data as an email address.</td></tr><tr><td style="text-align:left"><code>sanitize_text_field()</code></td><td style="text-align:left">Sanitizes data for text fields.</td></tr><tr><td style="text-align:left"><code>sanitize_user()</code></td><td style="text-align:left">Sanitizes data as a username.</td></tr><tr><td style="text-align:left"><code>wp_nonce_field(&#x27;myplugin_form_action&#x27;, &#x27;myplugin_nonce_field&#x27;, false)</code></td><td style="text-align:left">Adds a hidden nonce to a form.</td></tr><tr><td style="text-align:left"><code>wp_verify_nonce($nonce, &#x27;myplugin_form_action&#x27;)</code></td><td style="text-align:left">Verifies that the nonce exists and accepts the results of the form.</td></tr><tr><td style="text-align:left"><code>is_singular()</code></td><td style="text-align:left">Single post or page</td></tr><tr><td style="text-align:left"><code>is_single()</code></td><td style="text-align:left">Single post</td></tr><tr><td style="text-align:left"><code>is_page()</code></td><td style="text-align:left">Single page</td></tr><tr><td style="text-align:left"><code>is_archive()</code></td><td style="text-align:left">Archive page</td></tr><tr><td style="text-align:left"><code>isset()</code></td><td style="text-align:left">Checks if a variable is set</td></tr><tr><td style="text-align:left"><code>function_exists()</code></td><td style="text-align:left">Checks if a function exists</td></tr><tr><td style="text-align:left"><code>class_exists()</code></td><td style="text-align:left">Checks if a class exists</td></tr><tr><td style="text-align:left"><code>defined()</code></td><td style="text-align:left">Checks if a constant is defined</td></tr><tr><td style="text-align:left"><code>get_posts()</code></td><td style="text-align:left">Useful for creating side loops, get the posts on the page.</td></tr><tr><td style="text-align:left"><code>pre_get_posts</code></td><td style="text-align:left">Hook for customizing the main loop</td></tr><tr><td style="text-align:left"><code>WP_Query</code></td><td style="text-align:left">Useful for creating custom loops and multiple loops.</td></tr></tbody></table>
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">// exit if file is called directly</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">if (!defined(&#x27;ABSPATH&#x27;)) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    exit;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Ensures that the PHP files are being called from WordPress directly.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="course-overview">Course Overview<a href="#course-overview" class="hash-link" aria-label="Direct link to Course Overview" title="Direct link to Course Overview">​</a></h2>
+<ul>
+<li>WordPress - free open source content management system based on PHP and MySQL.</li>
+<li>The WordPress core is the set of main core files.</li>
+<li>WordPress allows people to create their own websites with powerful features.</li>
+<li>Plug-ins allow you to add packages of code that extend the core functionality of WordPress.</li>
+<li>Plugins can do:<!-- -->
+<ul>
+<li>Improve Security</li>
+<li>Improve SEO functionality</li>
+<li>Improve performance with caching</li>
+<li>Integrate third-party services</li>
+<li>Customize the WordPress admin area</li>
+<li>Customize just about anything</li>
+</ul>
+</li>
+<li>Using the Codex and developer documentation is a great idea.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="preparing-for-development">Preparing for Development<a href="#preparing-for-development" class="hash-link" aria-label="Direct link to Preparing for Development" title="Direct link to Preparing for Development">​</a></h2>
+<ul>
+<li>You need to set up a web server either locally or on a virtual machine.</li>
+<li>Version control allows you to back up the website and increase organization.</li>
+<li>There are also numerous dev tools for developing plugins.</li>
+<li>There are numerous development plugins that are really useful for making plugins:<!-- -->
+<ul>
+<li>Developer</li>
+<li>WP-Dev-Tools</li>
+<li>Query Monitor</li>
+<li>Debug Bar</li>
+</ul>
+</li>
+<li>You want to go into <code>wp-config.php</code> and turn on <code>WP_DEBUG</code>
+<ul>
+<li>You can view the logs directly on the web pages by doing:<!-- -->
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">define(&#x27;WP_DEBUG_DISPLAY&#x27;, true);</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>You can also log debug info into a file at <code>/wp-content/debug.log</code> by doing:<!-- -->
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">define(&#x27;WP_DEBUG_LOG&#x27;, true);</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="explore-wordpress-plugins">Explore WordPress Plugins<a href="#explore-wordpress-plugins" class="hash-link" aria-label="Direct link to Explore WordPress Plugins" title="Direct link to Explore WordPress Plugins">​</a></h2>
+<ul>
+<li>The golden rule is to not modify the WordPress core file:<!-- -->
+<ul>
+<li>Updates will overwrite your changes.</li>
+<li>Changes can break things</li>
+<li>Use plugins instead.</li>
+</ul>
+</li>
+<li>There are numerous plugins already available:<!-- -->
+<ul>
+<li>There are over 50,000 available plugins. Be sure to check before you start building.</li>
+<li>You can use already built projects to save yourself time and effort.</li>
+<li>Pro-Plugins are around the web and cost money to use and download.</li>
+<li>All plugins hosted at the plugins WordPress page and open source.</li>
+<li>Be sure to look at the license attached to the code you are using.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="get-started">Get Started<a href="#get-started" class="hash-link" aria-label="Direct link to Get Started" title="Direct link to Get Started">​</a></h2>
+<ul>
+<li>The simplest plugin can consist of only one file, but there are numerous plugins that have hundreds of files.</li>
+<li>It can include JS, CSS, HTML, PHP, and some other languages.</li>
+<li>It is good practice to develop a plugin in its own folder.</li>
+<li>Every plugin must have the required header, which can be found in the WordPress documentation.</li>
+<li>The header contains metadata:<!-- -->
+<ul>
+<li>Name</li>
+<li>Author</li>
+<li>Version</li>
+<li>License</li>
+<li>Description</li>
+<li>Etc.</li>
+</ul>
+</li>
+<li>Most plugins are licensed under the GPL GNU Public license version 2 or better, same as the WordPress core.</li>
+<li>You also want to add a copying permission statement to the file header along with including the actual license itself.</li>
+<li>In the WordPress admin area, you can activate your plugin in the plugin menu.</li>
+<li>You can install plugins in two different ways:<!-- -->
+<ul>
+<li>Manually install the plugin into the file directory.</li>
+<li>Install into the <code>mu-plugins</code> directory, which is automatically activated and must be used.<!-- -->
+<ul>
+<li>You may need to create this folder.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="must-use-plugins">Must-Use Plugins<a href="#must-use-plugins" class="hash-link" aria-label="Direct link to Must-Use Plugins" title="Direct link to Must-Use Plugins">​</a></h3>
+<ul>
+<li>Pros<!-- -->
+<ul>
+<li>Must-use plugins are always activated</li>
+<li>No need to activate manually via the admin area</li>
+<li>Users cannot disable by accident</li>
+<li>Loaded before the normal plugins</li>
+</ul>
+</li>
+<li>Cons:<!-- -->
+<ul>
+<li>No automatic or one-click updates</li>
+<li>No update notifications</li>
+<li>No activation/deactivation hooks</li>
+<li>No plugin directories-single PHP files only</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="plugin-naming-guidelines">Plugin Naming Guidelines<a href="#plugin-naming-guidelines" class="hash-link" aria-label="Direct link to Plugin Naming Guidelines" title="Direct link to Plugin Naming Guidelines">​</a></h3>
+<ul>
+<li>Plugin name should match the main plugin file.</li>
+<li>Plugin name should match the main plugin folder</li>
+<li>Do some research to avoid clashing with existing names.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="explore-wordpress-apis">Explore WordPress APIs<a href="#explore-wordpress-apis" class="hash-link" aria-label="Direct link to Explore WordPress APIs" title="Direct link to Explore WordPress APIs">​</a></h2>
+<ul>
+<li>All the code used to build the plugin should utilize the WordPress API.</li>
+<li>API - Application Programming Interface</li>
+<li>WordPress APIs:<!-- -->
+<ul>
+<li>Plugin API</li>
+<li>Quicktags API</li>
+<li>Rewrite API</li>
+<li>Settings API</li>
+<li>Shortcode API</li>
+<li>Transients API</li>
+<li>Widgets API</li>
+<li>XML-RPC API</li>
+</ul>
+</li>
+<li>There are also numerous classes, functions, and template tags that can be used.<!-- -->
+<ul>
+<li>See the documentation for more functionalities.</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="reasons-to-use-the-wp-api">Reasons to Use the WP API<a href="#reasons-to-use-the-wp-api" class="hash-link" aria-label="Direct link to Reasons to Use the WP API" title="Direct link to Reasons to Use the WP API">​</a></h3>
+<ul>
+<li>Makes development easier</li>
+<li>Saves time - no need to ‘reinvent the wheel’</li>
+<li>Does the heavy lifting for many complex tasks</li>
+<li>Ensure forward and backward compatibility</li>
+<li>Offers seamless integration with the WordPress admin area.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="action-and-filter-hooks">Action and Filter Hooks<a href="#action-and-filter-hooks" class="hash-link" aria-label="Direct link to Action and Filter Hooks" title="Direct link to Action and Filter Hooks">​</a></h2>
+<ul>
+<li>Hooks allow for the modification, extension, and removal of core functionality.</li>
+<li>There are two types of hooks.<!-- -->
+<ul>
+<li>Action - Allows you to run custom code at specific points during the execution of WordPress.<!-- -->
+<ul>
+<li>Ex: echo output, write to a file, modify a database.</li>
+</ul>
+</li>
+<li>Filters - modify the data during the execution of WordPress<!-- -->
+<ul>
+<li>Ex: modify post content before sending it to the user.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Callback functions are needed to use hooks.</li>
+<li><code>wp_mail(&quot;email&quot;, &quot;subject&quot;, &quot;message&quot;)</code> Allows you to send an email.</li>
+<li><code>add_action(&quot;hook&quot;, &quot;callback_function&quot;)</code> allows you to hook a callback function to an action.</li>
+<li>There is an order that hooks are executed in.</li>
+<li><code>add_filter(&#x27;hook&#x27;, &#x27;callback function&#x27;)</code> adds a filter to the designated hook, changing the content.</li>
+<li>You can add your own hooks to your plugins. This allows other developers to extend your plugin if they wish.</li>
+<li>You can also remove or disconnect filters and actions.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="plugin-activation-and-deactivation">Plugin Activation and Deactivation<a href="#plugin-activation-and-deactivation" class="hash-link" aria-label="Direct link to Plugin Activation and Deactivation" title="Direct link to Plugin Activation and Deactivation">​</a></h2>
+<ul>
+<li>Three important hooks when developing plugins:<!-- -->
+<ul>
+<li><code>register_activation_hook()</code> - runs when the plugin is activated<!-- -->
+<ul>
+<li>Useful hook when adding default options, making database tables, and sets options.</li>
+<li>Ex: <code>register_activation_hook(__FILE__, &#x27;callback function&#x27;)</code>
+<ul>
+<li><code>__FILE__</code> is a PHP constant of the PWD.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>register_deactivation_hook()</code> - runs when the plugin is deactivated<!-- -->
+<ul>
+<li>Ex: <code>register_deactivation_hook(__FILE__, &#x27;callback function&#x27;);</code></li>
+</ul>
+</li>
+<li><code>register_uninstall_hook()</code> - runs when the plugin is uninstalled.<!-- -->
+<ul>
+<li>Ex: <code>register_uninstall_hook(__FILE__, &#x27;myplugin_on_uninstall&#x27;);</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>current_user_can(&#x27;action&#x27;)</code> - Checks if the user can perform the requested action.</li>
+<li><code>add_option(&#x27;option&#x27;, value)</code> - Sets the option to the requested value.</li>
+<li><code>register_activation_hook()</code> must be called from within the main plugin file.</li>
+<li><code>register_activation_hook()</code> must not be registered from within another hook (e.g., &quot;plugins_loaded&quot; or &quot;init&quot;), because such hooks are called before the plugin is activated.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pluggable-activation-and-deactivation">Pluggable Activation and Deactivation<a href="#pluggable-activation-and-deactivation" class="hash-link" aria-label="Direct link to Pluggable Activation and Deactivation" title="Direct link to Pluggable Activation and Deactivation">​</a></h2>
+<ul>
+<li>WordPress provides a small set of Core functions that can be replaced by our own custom functions.<!-- -->
+<ul>
+<li>The list of functions can be found in <code>wp-includes/pluggable.php</code></li>
+</ul>
+</li>
+<li>Ex: <code>wp_logout()</code> handles the logging out of any users.<!-- -->
+<ul>
+<li>This connects to the <code>wp_logout</code> hook. You could change the functionality by hooking an action to that hook</li>
+<li>You can also make your own <code>wp_logout()</code> function by naming it the same thing in your file.</li>
+</ul>
+</li>
+<li>Pluggable functions allow for further customization, maybe even more than hooks offer.</li>
+<li>All pluggable functions are wrapped in <code>function_exists()</code> functions that check if they exist. This makes them pluggable.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="develop-secure-wordpress-plugins">Develop Secure WordPress Plugins<a href="#develop-secure-wordpress-plugins" class="hash-link" aria-label="Direct link to Develop Secure WordPress Plugins" title="Direct link to Develop Secure WordPress Plugins">​</a></h2>
+<ul>
+<li>Security is important to consider when creating plugins.</li>
+<li>Security is added as you build by validating visitors, sanitizing input/output, using nonces, and performing data validation.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="examples-of-data-validation">Examples of Data Validation<a href="#examples-of-data-validation" class="hash-link" aria-label="Direct link to Examples of Data Validation" title="Direct link to Examples of Data Validation">​</a></h3>
+<ul>
+<li>Check if an address exists</li>
+<li>Check if the number of items is greater than zero</li>
+<li>Check if a credit card number contains only numbers</li>
+<li>Check if formatting is correct.</li>
+<li>Check if a submission is not blank.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wp-validation-functions">WP Validation Functions<a href="#wp-validation-functions" class="hash-link" aria-label="Direct link to WP Validation Functions" title="Direct link to WP Validation Functions">​</a></h3>
+<ul>
+<li><code>is_email()</code> - checks if an email is valid</li>
+<li><code>term_exists()</code> - checks if term exists</li>
+<li><code>username_exists()</code> - checks if the username exists</li>
+<li>You can create your own validation functions that return a boolean on whether or not it is valid.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="data-sanitization">Data Sanitization<a href="#data-sanitization" class="hash-link" aria-label="Direct link to Data Sanitization" title="Direct link to Data Sanitization">​</a></h3>
+<ul>
+<li>The process of cleaning or filtering data to make it safe.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wp-sanitization-functions">WP Sanitization Functions<a href="#wp-sanitization-functions" class="hash-link" aria-label="Direct link to WP Sanitization Functions" title="Direct link to WP Sanitization Functions">​</a></h3>
+<ul>
+<li><code>sanitize_email()</code></li>
+<li><code>sanitize_text_field()</code>
+<ul>
+<li>Checks for invalid UTF-8</li>
+<li>Converts single less-than characters to entity</li>
+<li>Strips all tags</li>
+<li>Removes line breaks, tabs, and extra white space.</li>
+</ul>
+</li>
+<li><code>sanitize_user()</code></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="nonces">Nonces<a href="#nonces" class="hash-link" aria-label="Direct link to Nonces" title="Direct link to Nonces">​</a></h3>
+<ul>
+<li>Generated strings used to verify requests for security purposes.<!-- -->
+<ul>
+<li>Ex: <code>wp_nonce_field(&#x27;myplugin_form_action&#x27;, &#x27;myplugin_nonce_field&#x27;, false)</code></li>
+<li>Check that the nonce is correct: <code>wp_verify_nonce($nonce, &#x27;myplugin_form_action&#x27;)</code></li>
+<li>Creates a hidden nonce field used for verification.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="best-practices-for-plugins">Best Practices for Plugins<a href="#best-practices-for-plugins" class="hash-link" aria-label="Direct link to Best Practices for Plugins" title="Direct link to Best Practices for Plugins">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="file-organization">File Organization<a href="#file-organization" class="hash-link" aria-label="Direct link to File Organization" title="Direct link to File Organization">​</a></h3>
+<ul>
+<li>Separate admin assets from public assets</li>
+<li>Put general PHP files in the <code>/includes/</code> folder</li>
+<li>Add a proper file header to the main plugin file</li>
+<li>Keep the root directory as clean as possible.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="plugin-architecture">Plugin Architecture<a href="#plugin-architecture" class="hash-link" aria-label="Direct link to Plugin Architecture" title="Direct link to Plugin Architecture">​</a></h3>
+<ul>
+<li>Depends on the size of the plugin.</li>
+<li>Falls into three camps:<!-- -->
+<ul>
+<li>Single plugin file, containing functions</li>
+<li>Single plugin file, containing a class</li>
+<li>Main plugin file, then one or more class files.</li>
+</ul>
+</li>
+<li>Keep your code well organized</li>
+<li>Comment your code as needed</li>
+<li>Separate CSS and JavaScript Files</li>
+<li>Use conditional loading of code and assets</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wp-conditional-tags">WP Conditional Tags<a href="#wp-conditional-tags" class="hash-link" aria-label="Direct link to WP Conditional Tags" title="Direct link to WP Conditional Tags">​</a></h3>
+<ul>
+<li><code>is_singular()</code> - single post or page</li>
+<li><code>is_single()</code> - single post</li>
+<li><code>is_page()</code> - single page</li>
+<li><code>is_archive()</code> - archive page</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="avoid-naming-collisions">Avoid Naming Collisions<a href="#avoid-naming-collisions" class="hash-link" aria-label="Direct link to Avoid Naming Collisions" title="Direct link to Avoid Naming Collisions">​</a></h3>
+<ul>
+<li>Plugins have the same names on files, classes, variables, functions</li>
+<li>Prefix everything! (namespacing)<!-- -->
+<ul>
+<li>Namespacing - Group of elements that share a unique name or identifier</li>
+<li>Functions, Classes, Hooks, global variables, public variables, and database entries should be prefixed</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="check-for-existing-implementations">Check for Existing Implementations<a href="#check-for-existing-implementations" class="hash-link" aria-label="Direct link to Check for Existing Implementations" title="Direct link to Check for Existing Implementations">​</a></h3>
+<ul>
+<li>PHP Functions:<!-- -->
+<ul>
+<li><code>isset()</code> - checks if a variable is set</li>
+<li><code>function_exists()</code> - checks if a function exists</li>
+<li><code>class_exists()</code> - checks if a class exists</li>
+<li><code>defined()</code> - checks if a constant is defined.</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="use-object-oriented-programming-oop">Use Object-Oriented Programming (OOP)<a href="#use-object-oriented-programming-oop" class="hash-link" aria-label="Direct link to Use Object-Oriented Programming (OOP)" title="Direct link to Use Object-Oriented Programming (OOP)">​</a></h3>
+<ul>
+<li>Simplifies needing to check if the class already exists.</li>
+<li>Use WordPress API and core functions</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="choose-a-good-name-for-your-plugin">Choose a Good Name for Your Plugin<a href="#choose-a-good-name-for-your-plugin" class="hash-link" aria-label="Direct link to Choose a Good Name for Your Plugin" title="Direct link to Choose a Good Name for Your Plugin">​</a></h3>
+<ul>
+<li>Avoid using WordPress or Plugin</li>
+<li>Do not include trademarked names without permission</li>
+<li>Do not use vulgar or offensive names</li>
+<li>Choose a unique name and avoid copyright issues</li>
+<li>Take your time and do research</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="write-great-documentation">Write Great Documentation<a href="#write-great-documentation" class="hash-link" aria-label="Direct link to Write Great Documentation" title="Direct link to Write Great Documentation">​</a></h3>
+<ul>
+<li>Follow the <code>readme</code> documentation file on the website.</li>
+<li>There is a validator on wordpress.org to ensure that <code>readme</code>s are valid.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="plugin-boilerplates">Plugin Boilerplates<a href="#plugin-boilerplates" class="hash-link" aria-label="Direct link to Plugin Boilerplates" title="Direct link to Plugin Boilerplates">​</a></h3>
+<ul>
+<li>It is a built-in starter point.</li>
+<li>Keep a good changelog</li>
+<li>Use semantic versioning</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="creating-the-plugin-directory-and-files">Creating the Plugin Directory and Files<a href="#creating-the-plugin-directory-and-files" class="hash-link" aria-label="Direct link to Creating the Plugin Directory and Files" title="Direct link to Creating the Plugin Directory and Files">​</a></h2>
+<ul>
+<li>The <code>admin</code> folder is for anything styling or code written for the admin pages.</li>
+<li>The <code>public</code> folder is for any styling and code outfacing.</li>
+<li>The <code>includes</code> folder is for any PHP files that are being used anywhere.</li>
+<li>The <code>languages</code> folder is for translation.</li>
+<li><code>index.php</code> is empty, it is just for security, it hides the file directory<!-- -->
+<ul>
+<li>Add it to the <code>admin</code>, <code>includes</code>, <code>languages</code>, and <code>public</code> folders.</li>
+</ul>
+</li>
+<li>For security reasons, you want to prevent direct access to the PHP files, add this line above each PHP file:<!-- -->
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">// exit if file is called directly</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">if (!defined(&#x27;ABSPATH&#x27;)) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    exit;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="add-administration-menus">Add Administration Menus<a href="#add-administration-menus" class="hash-link" aria-label="Direct link to Add Administration Menus" title="Direct link to Add Administration Menus">​</a></h2>
+<ul>
+<li>There are two types of admin menus:<!-- -->
+<ul>
+<li>Top-Level Menu<!-- -->
+<ul>
+<li>May contain sub-levels</li>
+<li>Best for plugins with multiple settings pages</li>
+</ul>
+</li>
+<li>Sub-Level Menu<!-- -->
+<ul>
+<li>Adding to an existing top level menu</li>
+<li>Best for plugins with only one setting page</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="to-add-a-menu">To Add a Menu<a href="#to-add-a-menu" class="hash-link" aria-label="Direct link to To Add a Menu" title="Direct link to To Add a Menu">​</a></h3>
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">add_menu_page(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    string $page_title,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    string $menu_title,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    string $capability,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    string $menu_slug,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    callable $function = &#x27;&#x27;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    string $icon_url = &#x27;&#x27;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    int $position = null</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">);</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>This is hooked to the <code>admin_menu</code> hook as an action.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="to-add-a-sub-menu">To Add a Sub-Menu<a href="#to-add-a-sub-menu" class="hash-link" aria-label="Direct link to To Add a Sub-Menu" title="Direct link to To Add a Sub-Menu">​</a></h3>
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">add_submenu_page(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    string $parent_slug,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    string $page_title,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    string $menu_title,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    string $capability,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    string $menu_slug,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    callable $function = &#x27;&#x27;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">);</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>This is also hooked to the <code>admin_menu</code> hook as an action.</li>
+<li>Don’t forget to add the no-access code to any new files.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="to-include-files-in-the-admin-area">To Include Files in the Admin Area<a href="#to-include-files-in-the-admin-area" class="hash-link" aria-label="Direct link to To Include Files in the Admin Area" title="Direct link to To Include Files in the Admin Area">​</a></h3>
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">if (is_admin()) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  // include dependencies</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  require_once plugin_dir_path(__FILE__) . &#x27;admin/admin-menu.php&#x27;;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  require_once plugin_dir_path(__FILE__) . &#x27;admin/settings-page.php&#x27;;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="add-the-plugin-settings-page">Add The Plugin Settings Page<a href="#add-the-plugin-settings-page" class="hash-link" aria-label="Direct link to Add The Plugin Settings Page" title="Direct link to Add The Plugin Settings Page">​</a></h2>
+<ul>
+<li>The settings API provides built-in security and visual consistency. It also handles all the form processing.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="types-of-html-inputs-supported-in-plugins">Types of HTML Inputs Supported in Plugins<a href="#types-of-html-inputs-supported-in-plugins" class="hash-link" aria-label="Direct link to Types of HTML Inputs Supported in Plugins" title="Direct link to Types of HTML Inputs Supported in Plugins">​</a></h3>
+<ul>
+<li>
+<p>Text input</p>
+</li>
+<li>
+<p>Radio input</p>
+</li>
+<li>
+<p>Checkbox</p>
+</li>
+<li>
+<p>Textarea</p>
+</li>
+<li>
+<p>Select Menu</p>
+</li>
+<li>
+<p>The first argument in <code>register_settings</code> must match the <code>settings_fields</code> from the display settings page function.</p>
+</li>
+<li>
+<p>The <code>register_settings</code> function can be hooked to <code>admin_init</code>.</p>
+</li>
+<li>
+<p>The <code>register_settings</code> function should register the settings, add the sections, and finally add the settings.</p>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="add-settings-callback-functions">Add Settings Callback Functions<a href="#add-settings-callback-functions" class="hash-link" aria-label="Direct link to Add Settings Callback Functions" title="Direct link to Add Settings Callback Functions">​</a></h2>
+<ul>
+<li><code>get_option(&#x27;myplugin_options&#x27;, myplugin_options_default());</code>
+<ul>
+<li>The first argument is defined in the <code>register_settings()</code> function.</li>
+<li>The second parameter is the function that returns the default option if they can’t find the options.</li>
+</ul>
+</li>
+<li><code>checked()</code> is a function that checks if a radio button is checked.</li>
+<li><code>wp_kses_allowed_html(&#x27;post&#x27;)</code>
+<ul>
+<li>Allows basic tags and markup</li>
+</ul>
+</li>
+<li><code>selected()</code> - checks if identical marks are selected.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="validate-plugin-settings">Validate Plugin Settings<a href="#validate-plugin-settings" class="hash-link" aria-label="Direct link to Validate Plugin Settings" title="Direct link to Validate Plugin Settings">​</a></h2>
+<ul>
+<li>Sanitizes the URL: <code>esc_url($input[&#x27;custom_url&#x27;])</code></li>
+<li>Checks if an array key exists: <code>array_key_exists()</code></li>
+<li>Sanitizes text fields with markup: <code>wp_kses_post()</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="add-custom-functionality">Add Custom Functionality<a href="#add-custom-functionality" class="hash-link" aria-label="Direct link to Add Custom Functionality" title="Direct link to Add Custom Functionality">​</a></h2>
+<ul>
+<li>Files that are for both the admin and public view should be placed outside the <code>is_admin()</code> statement.</li>
+<li>Will change the login header.<!-- -->
+<ul>
+<li><code>add_filter(&#x27;login_headerurl&#x27;, &#x27;callback function&#x27;);</code></li>
+</ul>
+</li>
+<li>Will change the title of the logo link at the login page.<!-- -->
+<ul>
+<li><code>add_filter(&#x27;login_headertitle&#x27;, &#x27;callback function&#x27;);</code></li>
+</ul>
+</li>
+<li>Will add a stylesheet:<!-- -->
+<ul>
+<li><code>wp_enqueue_style(handle, path);</code></li>
+</ul>
+</li>
+<li>You can also remove the toolbar:<!-- -->
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">global $wp_admin_bar;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$wp_admin_bar-&gt;remove_menu(&#x27;comments&#x27;);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$wp_admin_bar-&gt;remove_menu(&#x27;new-content&#x27;);</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>Hook:<!-- -->
+<ul>
+<li><code>add_action(&#x27;wp_before_admin_bar_render&#x27;, &#x27;callback&#x27;, 999);</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="include-javascript-and-css">Include JavaScript and CSS<a href="#include-javascript-and-css" class="hash-link" aria-label="Direct link to Include JavaScript and CSS" title="Direct link to Include JavaScript and CSS">​</a></h2>
+<ul>
+<li>There are two different <code>wp_enqueue</code> functions for JavaScript and CSS:<!-- -->
+<ul>
+<li>CSS<!-- -->
+<ul>
+<li><code>wp_enqueue_style(handle, URL/Path, array_of_dependencies, URL query string, media attribute of style sheet);</code></li>
+</ul>
+</li>
+<li>JavaScript<!-- -->
+<ul>
+<li><code>wp_enqueue_script(handle, URL/Path, array of dependencies, URL Query String, true);</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Hook: <code>login_enqueue_scripts</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="plugin-internalization">Plugin Internalization<a href="#plugin-internalization" class="hash-link" aria-label="Direct link to Plugin Internalization" title="Direct link to Plugin Internalization">​</a></h2>
+<ul>
+<li>Internationalizing means that it is ready for users to translate into other languages.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="general-steps">General Steps<a href="#general-steps" class="hash-link" aria-label="Direct link to General Steps" title="Direct link to General Steps">​</a></h3>
+<ul>
+<li>Prepare Folders and Files<!-- -->
+<ul>
+<li>Add a <code>/language/</code> folder</li>
+<li>Use the same slug/name for the main plugin folder and file</li>
+<li>Add “Text Domain” and “Domain Path” to the file header. (main plugin file and <code>readme.txt</code>)</li>
+</ul>
+</li>
+<li>Add Localization Functions<!-- -->
+<ul>
+<li>Include <code>load_plugin_textdomain()</code>
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">function myplugin_load_textdomain() {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">load_plugin_textdomain(&#x27;myplugin&#x27;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">plugin_dir_path(**FILE**) . &#x27;languages/&#x27;);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">add_action(&#x27;plugins_loaded&#x27;, &#x27;myplugin_load_textdomain&#x27;);</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+</li>
+</ul>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    - The hook is called ‘plugins_loaded’</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Replace all text strings with a localization function.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    - `__( ‘string‘, ‘plugins text domain’ )`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Generate the POT file</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - (Default Translation File)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Tools for i18n and I10n</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    - Loco Translate (Wordpress Plugin)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- General I10n Functions:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `__()`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `_e()` - Echo instead of return.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `_x()` - Provides an extra parameter for context</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Safeer General I10n Functions:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Escapes for Markup:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    - esc_html__()</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    - esc_html__e()</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    - esc_html__x()</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Will do sanitization and prevent unwanted code from running</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Add an Uninstall Feature</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Any good plugin will clean itself up if it is uninstalled.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- This is good to add from the beginning so you can keep track of what you are adding.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Uninstall Methods:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `register_uninstall_hook(path, ‘callback function’)`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    - `delete_option(&#x27;myplugin_options&#x27;);`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      - Will run automatically if the plugin is uninstalled.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      - Preferred Method</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      - Can also do:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        - `delete_transient()`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        - `delete_metadata()`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Uninstall.php file.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Test and Debug:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Be sure to check your debug.log to ensure that there are no errors occurring in the background.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Be sure to test each of your functions when developing.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- You can also check on different WP Versions</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Current WP Version</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Nightly Development Version</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - WordPress Multisite</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Older version(s) of WordPress</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - WordPress setup for other languages</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Check the details:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Proper file headers in readme and main plugin file</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Do not include the closing tags at the end of PHP files</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Include the no direct access tag and the end of PHP files</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Properly namespace and public functions, classes, etc</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Delete any empty folders and files (optional)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Customize the WordPress Loop:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- About the wordpress loop:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Displays sets of posts</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Is included in theme templates</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Custom Loop Techniques:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `get_posts()` - Useful for creating side loops</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `pre_get_posts` - Useful for customizing the main loop</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `WP_Query` - Useful for creating custom loops and multiple loops</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Create Widgets:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Wordpress provides a Widgets API that allows you to create your own widget.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- You create a widget by extending the widget class.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Four functions need to be addedL</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `widget()` - Output content</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `form()` - Outputs the form fields that appear in the admin area for widgets.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `update()` - Processes the Options</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `__construct()` - Inits the Widget</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- You need to `register_widget( ‘widget class’ )` in a call back function and then hook it to the widget_init action hook.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- The documentation does a walkthrough of creating a widget in the documentation.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- `wp_kses_post()` Will remove any illegal HTML tags.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Widget Variables:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `$name`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `$id`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `$description`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `$class`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `$before_widget`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `$after_widget`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `$before_title`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `$after_title`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `$widget_id`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `$widget_name`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Manage Users and Roles:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- All user data is stored in the Users table in the database.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- They all have username, passwords, and emails</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Easiest way to create a user:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `wp_create_user( $username, $password, $email )`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- `wp_generate_password()` will generate a random password.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- The best hook to use when processing form data is ‘admin_init’</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- `wp_update_user( $userData )` allows you to update a user&#x27;s credentials.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-   The `$userData` parameter is an array of data.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- A single piece of user data can be changed via update_user_meta()</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- You can also delete existing users using wp_delete_user( $id )</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- User Roles and Capabilities</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Each role has its own set of capabilities</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Checking for proper capabilities is critical for security</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Each user should have the least permissive capabilities required to do the intended task</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Each role inherits all the previous roles in the hierarchy</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Default WP Roles:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Super Admin</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Administrator</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Editor</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Author</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Contributor</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Subscriber</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- - Changing or Modifying WP Roles</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `add_role()` - Add role or assign capabilities</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `get_role()` - Gets an already created role</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `remove_role()` - Removes a role from WP.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `current_user_can()` is a great security function to ensure that the user can perform the action they are attempting.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Work with JavaScript and CSS:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- JavaScript:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Include a JavaScript file with `wp_enqueue_script()`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Include inline JavaScript with `wp_add_inline_script()`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- CSS</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Include a CSS file with `wp_enqueue_styles()`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Include inline CSS with `wp_add_inline_styles()`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- The `admin_enqueue_scripts` styles allow you to add to the admin pages.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- The `wp_enqueue_scripts` allows you to add CSS or JavaScript to existing public pages.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- The login pages hook is l`ogin_enqueue_scripts`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Inline styles can be added using `wp_add_inline_style()` function</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Front-End Hook: `wp_enqueue_scripts`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Admin Area Hook: `admin_enqueue_scripts`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Login Page Hook: `login_enqueue_scripts`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Use the Options API</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Allows you to add and delete options and update them.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Main Functions:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `get_option(name)`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `add_option(name, value)`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `update_option(name, value)`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `delete_option(name)`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- The options API and the settings API store settings in the same Table.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- The add and update are hooked onto the admin_init</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Add Custom Post Types and Taxonomies</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- It is easy to add custom post types and taxonomies</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Custom post types are made when the default options don’t fit.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Taxonomies are useful for categories of products that don’t fit</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Category</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Post_tags</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Link_category</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Post_format</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Functions can be hooked to the ‘init’ hook when you want to use it every time a page is loaded.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `register_post_type($name, $args array)` - Will register a new post type.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - `register_taxonomy($name, $post type, $array args)`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Work with Custom Fields</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Custom Fields are a type of Metadata</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Types of MetaData</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Post metadata - `get_post_meta( $id, custom field name, is_array)`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  -   `get _the_id()` will get the post id.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - User metadata - `get_user-meta()`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Comment metadata - `get_comment_meta()`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Term metadata - `get_term_meta()`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- You can also add, update, and remove</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Custom Fields:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Metadata for posts</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Key-Value Pairs</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - Key names can be used more than once</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- You can add a custom field manually in the admin console.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- `get_post_custom()` will allow you to get all custom fields attached to a post.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Any fields that start with an _ are hidden in the admin console.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- This allows you to hide custom fields from the end user.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- The ‘the_content’ hook fires every time a post is loaded, so it works great for working with custom fields.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- `add_post_meta( get_the_ID(), name, $value, is_unique)`</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- `update_post_meta( get_the_ID(), name, $newvalue, $previous value)` will change the custom field.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- `delete_post_meta( get_the_ID() , $nameoffield)` will delete the specified custom field.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Add Meta Boxes:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Allows you to add Meta Boxes to the wordpress admin area.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Metaboxes can be moved by clicking and dragging or hiding the meta boxes in the screen options.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - To add a new meta box:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">```php</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">add_meta_box(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           &#x27;myplugin_meta_box&#x27;,         // Unique ID of meta box</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           &#x27;MyPlugin Meta Box&#x27;,         // Title of meta box</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           &#x27;myplugin_display_meta_box&#x27;, // Callback function</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           $post_type                   // Post type</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       );</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>Hook onto the ‘add-meta-boxes’ hook.</li>
+<li>The post types are the posts you want to add to.</li>
+<li>To update the meta box:</li>
+</ul>
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">update_post_meta(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           $post_id,                                            // Post ID</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           &#x27;_myplugin_meta_key&#x27;,                                // Meta key</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           sanitize_text_field( $_POST[ &#x27;myplugin-meta-box&#x27; ] ) // Meta value</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       );</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>Hook onto ‘save_post’ to ensure that the meta box is saved.</li>
+<li><code>get_post_meta( $post-&gt;ID, &#x27;_myplugin_meta_key&#x27;, true )</code> allows you to hide the meta box from everything except your new section by including an _ in the name.</li>
+</ul>
+<p>Working with Custom Database Queries:</p>
+<ul>
+<li>Wordpress provides hundreds of functions to get the data from the database.<!-- -->
+<ul>
+<li>Ex:</li>
+<li><code>get_post()</code></li>
+<li><code>get_userdata()</code></li>
+<li><code>get_category()</code></li>
+<li><code>get_comment()</code></li>
+<li><code>get_attached_media()</code></li>
+<li><code>get_metadata()</code></li>
+</ul>
+</li>
+<li>The wpdb class makes a global variable called wpdb<!-- -->
+<ul>
+<li>The class contains a set of functions</li>
+<li>Interacts with the database for you</li>
+<li>Use <code>$wpdb</code>, not the class itself.</li>
+</ul>
+</li>
+<li>Wpdb methods:<!-- -->
+<ul>
+<li><code>-&gt;prepare( $query, $column, $field )</code> Escape a SQL query to avoid SQL injections</li>
+<li><code>-&gt;get_results()</code> - Get generic results</li>
+<li><code>-&gt;get_var()</code> - Get a variable</li>
+<li><code>-&gt;get_col()</code> - Get a column</li>
+<li><code>-&gt;get_col_info()</code> Get column information</li>
+<li><code>-&gt;get_row()</code> - Get a row</li>
+<li><code>-&gt;insert()</code> - Insert row</li>
+<li><code>-&gt;replace()</code> - replace row</li>
+<li><code>-&gt;update()</code> - Update row</li>
+<li><code>-&gt;delete()</code> - Delete row</li>
+<li><code>-&gt;query()</code> - Run general query</li>
+</ul>
+</li>
+<li>Using <code>prepare()</code>
+<ul>
+<li>Define the query<!-- -->
+<ul>
+<li><code>$query = “SELECT * FROM $wpdb-&gt;users WHERE ID=$user_id”</code></li>
+</ul>
+</li>
+<li>Replace the variable with a placeholder<!-- -->
+<ul>
+<li><code>$query = “SELECT * FROM $wpdb-&gt;users WHERE ID= $d”</code></li>
+</ul>
+</li>
+<li>Prepare the Query<!-- -->
+<ul>
+<li><code>$prepared_query = $wpdb-&gt;prepare( $query, $user_id )</code></li>
+</ul>
+</li>
+<li>Execute the query:<!-- -->
+<ul>
+<li><code>$results = $wpdb-&gt;get_var( $escaped_query )</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>To use the class, all you need to do is declare the global variable:<!-- -->
+<ul>
+<li>Global <code>$wpdb</code>;</li>
+</ul>
+</li>
+</ul>
+<p>Integrate Admin Notices</p>
+<ul>
+<li>Admin notices are displayed at the top of the page when an update, error, or warning occurs.</li>
+<li>If menus are in the settings menu, Wordpress takes care of admin messages for you. Outside of the settings menu you are on your own.</li>
+<li>To add the admin notices, you add the <code>settings_errors();</code> to the HTML of the page you want to add the notice to.</li>
+<li>You can also add admin notices by hooking a callback function with that line to the ‘admin_notices’ hook.</li>
+<li><code>get_current_screen()</code> will get the current screen.</li>
+<li>You can also make your own HTML notices and hook them to the same hook to make custom Admin Notices.</li>
+<li>CSS Classes for Notices<!-- -->
+<ul>
+<li>Notice-error - Error message displayed in red</li>
+<li>Notice-warning - warning message with a yellow border</li>
+<li>Notice-success with a success message, green border</li>
+<li>Notice-info - info message blue border.</li>
+</ul>
+</li>
+</ul>
+<p>Use the Transients API</p>
+<ul>
+<li>Stores cached data in the options table</li>
+<li>Transients expire at a specific time set<!-- -->
+<ul>
+<li>The default time is twelve hours.</li>
+</ul>
+</li>
+<li>Very useful for storing temporary data</li>
+<li>Functions used with Transients<!-- -->
+<ul>
+<li><code>get_transient( ‘transient_name’ )</code></li>
+<li><code>set_transient( ‘name’, $var, expire-time)</code></li>
+<li><code>delete_transient( ‘name’ )</code></li>
+</ul>
+</li>
+</ul>
+<p>Use the HTTP API:</p>
+<ul>
+<li>Allows you to work with APIs outside of WordPress.</li>
+<li>HTTP - Communication protocol for the internet.</li>
+<li>Request Methods - GET, POST, HEAD</li>
+<li>HEAD requests get the header of the request before making the full request.</li>
+<li>HTTP requests return a status code dictating what happened.</li>
+<li>WP_Http Class allows you to make requests</li>
+<li>Main Functions<!-- -->
+<ul>
+<li><code>wp_safe_remote_get( $url, $args )</code> - Retrieve a raw response from an HTTP request using the GET method.</li>
+<li><code>wp_safe_remote_post( $url, $args )</code> - Retrience a raw response from an HTTP request using the POST method.</li>
+<li><code>wp_safe_remote_head( $url, $args )</code> - Retrieve a raw response from an HTTP request using the HEAD method.</li>
+<li><code>wp_safe_remote_request( $url, $args )</code> - Retrience a raw response from an HTTP request using any valid method.</li>
+</ul>
+</li>
+<li><code>is_wp_error( $response )</code> will check if the HTTP request was successful or not.</li>
+<li>There are also a bunch of utility functions that allow you to get specific parts of the response of the request<!-- -->
+<ul>
+<li>See the documentation for these numerous functions.</li>
+</ul>
+</li>
+<li>Performance:<!-- -->
+<ul>
+<li>External APIs can slow down your site</li>
+<li>It time extra time to process and return requests</li>
+<li>API’s have limits to requests, so be careful when making numerous API requests</li>
+</ul>
+</li>
+<li>To improve Performance<!-- -->
+<ul>
+<li>Use transients to cache response data</li>
+<li>Check the status of the resource via the HEAD request</li>
+<li>Only make full GET or POST requests if the content has changed.</li>
+</ul>
+</li>
+</ul>
+<p>Use WP-Cron</p>
+<ul>
+<li>Allows you to make time based tasks or at registered intervals.</li>
+<li>It is a pseudo cron service, it only runs on the page load.<!-- -->
+<ul>
+<li>It is not set by minute, the queue of requests can add up if pages are not loaded.</li>
+</ul>
+</li>
+<li>Default Intervals<!-- -->
+<ul>
+<li>Hourly</li>
+<li>Twice Daily</li>
+<li>Daily</li>
+</ul>
+</li>
+<li>You can set your own intervals for CRON events.</li>
+<li>To create your own interval: make your own array with the interval and custom display name. Add it to the schedules array and hook it to the ‘cron_schedules’ hook.</li>
+<li>To schedule an event:<!-- -->
+<ul>
+<li><code>wp_schedule_event( time(), interval, name of hook)</code></li>
+</ul>
+</li>
+<li>Be sure to check that the event has not already been scheduled.</li>
+<li>These can be hooked to the register_activation_hook</li>
+<li>Then, the action you want to perform should be hooked onto your newly created hook.</li>
+<li>You can run WP_cron manually by loading the wp-cron.php file on your browser.</li>
+<li>You can also define WP-CRON constants in the wp-config file. \</li>
+<li>Be sure to remove any hooks from your plugin if it is uninstalled.<!-- -->
+<ul>
+<li><code>wp_clear_scheduled_hook( ‘event_name’)</code></li>
+<li>Then: <code>register_deactivation_hook(__FILE__, ‘hook_name’)</code></li>
+</ul>
+</li>
+</ul>
+<p>Implement Ajax:</p>
+<ul>
+<li>Ajax allows for interactions with the server without requiring a page reload.</li>
+<li>The three functions included with the class has the ajax-admin.php file that uses Ajax on the server.</li>
+<li>The JS file also needs to be included that was included with the class: ajax-public.js</li>
+<li>There are two useful hooks for Ajax: <code>wp_ajax_public_hook</code> and <code>wp_ajax_nopriv_public_hook</code></li>
+</ul>
+<p>Using the REST API:</p>
+<ul>
+<li>Provides database data in JSON format</li>
+<li>Enables CRUD via client-side JavaScript</li>
+<li>Enables interaction with external apps</li>
+<li>Provide public data to anonymous clients</li>
+<li>Provides private data to authorized clients</li>
+<li>Is included in WordPress 4.7 and later</li>
+<li>Benefits:<!-- -->
+<ul>
+<li>Enables interaction with data via JS</li>
+<li>Opens WordPress to other programming languages</li>
+<li>Provides an alternative to WordPress Ajax API</li>
+<li>Handles nonce verification and data sanitization</li>
+</ul>
+</li>
+</ul>
+<p>Develop with Gutenburg:</p>
+<ul>
+<li>Wordpress provided a new block editor called Gutenburg to edit pages.</li>
+<li>Gutenberg allows you to add different blocks to your post, along with any other blocks the plugins you add on allow.</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/php">php</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/wordpress">wordpress</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/plugin">plugin</a></li></ul></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/technologies/Wordpress/Wordpress Building Child Themes"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Wordpress Building Child Themes</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/technologies/Wordpress/Working with GET and POST"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Introducing Superglobals $_GET and $_POST</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#course-overview" class="table-of-contents__link toc-highlight">Course Overview</a></li><li><a href="#preparing-for-development" class="table-of-contents__link toc-highlight">Preparing for Development</a></li><li><a href="#explore-wordpress-plugins" class="table-of-contents__link toc-highlight">Explore WordPress Plugins</a></li><li><a href="#get-started" class="table-of-contents__link toc-highlight">Get Started</a><ul><li><a href="#must-use-plugins" class="table-of-contents__link toc-highlight">Must-Use Plugins</a></li><li><a href="#plugin-naming-guidelines" class="table-of-contents__link toc-highlight">Plugin Naming Guidelines</a></li></ul></li><li><a href="#explore-wordpress-apis" class="table-of-contents__link toc-highlight">Explore WordPress APIs</a><ul><li><a href="#reasons-to-use-the-wp-api" class="table-of-contents__link toc-highlight">Reasons to Use the WP API</a></li></ul></li><li><a href="#action-and-filter-hooks" class="table-of-contents__link toc-highlight">Action and Filter Hooks</a></li><li><a href="#plugin-activation-and-deactivation" class="table-of-contents__link toc-highlight">Plugin Activation and Deactivation</a></li><li><a href="#pluggable-activation-and-deactivation" class="table-of-contents__link toc-highlight">Pluggable Activation and Deactivation</a></li><li><a href="#develop-secure-wordpress-plugins" class="table-of-contents__link toc-highlight">Develop Secure WordPress Plugins</a><ul><li><a href="#examples-of-data-validation" class="table-of-contents__link toc-highlight">Examples of Data Validation</a></li><li><a href="#wp-validation-functions" class="table-of-contents__link toc-highlight">WP Validation Functions</a></li><li><a href="#data-sanitization" class="table-of-contents__link toc-highlight">Data Sanitization</a></li><li><a href="#wp-sanitization-functions" class="table-of-contents__link toc-highlight">WP Sanitization Functions</a></li><li><a href="#nonces" class="table-of-contents__link toc-highlight">Nonces</a></li></ul></li><li><a href="#best-practices-for-plugins" class="table-of-contents__link toc-highlight">Best Practices for Plugins</a><ul><li><a href="#file-organization" class="table-of-contents__link toc-highlight">File Organization</a></li><li><a href="#plugin-architecture" class="table-of-contents__link toc-highlight">Plugin Architecture</a></li><li><a href="#wp-conditional-tags" class="table-of-contents__link toc-highlight">WP Conditional Tags</a></li><li><a href="#avoid-naming-collisions" class="table-of-contents__link toc-highlight">Avoid Naming Collisions</a></li><li><a href="#check-for-existing-implementations" class="table-of-contents__link toc-highlight">Check for Existing Implementations</a></li><li><a href="#use-object-oriented-programming-oop" class="table-of-contents__link toc-highlight">Use Object-Oriented Programming (OOP)</a></li><li><a href="#choose-a-good-name-for-your-plugin" class="table-of-contents__link toc-highlight">Choose a Good Name for Your Plugin</a></li><li><a href="#write-great-documentation" class="table-of-contents__link toc-highlight">Write Great Documentation</a></li><li><a href="#plugin-boilerplates" class="table-of-contents__link toc-highlight">Plugin Boilerplates</a></li></ul></li><li><a href="#creating-the-plugin-directory-and-files" class="table-of-contents__link toc-highlight">Creating the Plugin Directory and Files</a></li><li><a href="#add-administration-menus" class="table-of-contents__link toc-highlight">Add Administration Menus</a><ul><li><a href="#to-add-a-menu" class="table-of-contents__link toc-highlight">To Add a Menu</a></li><li><a href="#to-add-a-sub-menu" class="table-of-contents__link toc-highlight">To Add a Sub-Menu</a></li><li><a href="#to-include-files-in-the-admin-area" class="table-of-contents__link toc-highlight">To Include Files in the Admin Area</a></li></ul></li><li><a href="#add-the-plugin-settings-page" class="table-of-contents__link toc-highlight">Add The Plugin Settings Page</a><ul><li><a href="#types-of-html-inputs-supported-in-plugins" class="table-of-contents__link toc-highlight">Types of HTML Inputs Supported in Plugins</a></li></ul></li><li><a href="#add-settings-callback-functions" class="table-of-contents__link toc-highlight">Add Settings Callback Functions</a></li><li><a href="#validate-plugin-settings" class="table-of-contents__link toc-highlight">Validate Plugin Settings</a></li><li><a href="#add-custom-functionality" class="table-of-contents__link toc-highlight">Add Custom Functionality</a></li><li><a href="#include-javascript-and-css" class="table-of-contents__link toc-highlight">Include JavaScript and CSS</a></li><li><a href="#plugin-internalization" class="table-of-contents__link toc-highlight">Plugin Internalization</a><ul><li><a href="#general-steps" class="table-of-contents__link toc-highlight">General Steps</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Justin Szaro. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

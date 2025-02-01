@@ -1,3 +1,10 @@
+---
+id: HTML Form Basics
+tags:
+  - html
+  - forms
+---
+
 # HTML Forms Documentation
 
 Link to documentation: https://developer.mozilla.org/en-US/docs/Learn/Forms

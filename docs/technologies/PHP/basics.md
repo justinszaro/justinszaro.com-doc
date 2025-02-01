@@ -1,3 +1,9 @@
+---
+id: PHP Basics
+tags:
+  - php
+---
+
 # PHP Basics
 
 ## PHP Code

@@ -1,4 +1,8 @@
-
+---
+id: Javascript
+tags:
+  - javascript
+---
 
 | // | Comment |
 | :---- | :---- |

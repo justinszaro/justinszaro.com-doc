@@ -1,3 +1,9 @@
+---
+id: Understanding Information Architecture
+tags:
+  - information architecture
+---
+
 What do Information Architects do?:
 
 * Information Architecture \- the practice of deciding how to arrange the parts of something to be understandable.   

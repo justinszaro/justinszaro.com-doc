@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-technologies/Wordpress/Working with GET and POST" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Introducing Superglobals $_GET and $_POST | Documentation &amp; Notes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.justinszaro.com/docs/technologies/Wordpress/Working with GET and POST"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Introducing Superglobals $_GET and $_POST | Documentation &amp; Notes"><meta data-rh="true" name="description" content="* PHP Superglobal - associative array of data that is created by the server to capture information from URLs, HTML forms, cookies, sessions, and web servers."><meta data-rh="true" property="og:description" content="* PHP Superglobal - associative array of data that is created by the server to capture information from URLs, HTML forms, cookies, sessions, and web servers."><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://docs.justinszaro.com/docs/technologies/Wordpress/Working with GET and POST"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/Wordpress/Working with GET and POST" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/Wordpress/Working with GET and POST" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.461f3ee9.css">
+<script src="/assets/js/runtime~main.74eb53f5.js" defer="defer"></script>
+<script src="/assets/js/main.8c386e1d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Documentation</b></a><a class="navbar__item navbar__link" href="/docs/projects/">Projects</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/technologies/CSS/CSS Basics">Technologies</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/justinszaro" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/CSS/CSS Basics">CSS</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/General/Intro to Design Thinking">General</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/Git/Git Useful Commands">Git</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/HTML/HTML Form Basics">HTML</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/technologies/Javascript/">Javascript</a><button aria-label="Expand sidebar category &#x27;Javascript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/MySQL/Common Table Expressions">MySQL</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/PHP/PHP Basics">PHP</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/React/Packages/EasyPeasy/tutorials">React</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/technologies/Wordpress/Wordpress Action and Filter Hooks">Wordpress</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Action and Filter Hooks">WordPress Hooks and Filters</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Advanced Action and Filter Hooks">Wordpress Advanced Action and Filter Hooks</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Child Themes">Building a WordPress Child Theme</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Custom Post Types and Taxonomies">Custom Post Types and Taxonomies:</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress DRY Development Techniques">Wordpress DRY Development Techniques</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Building Child Themes">Wordpress Building Child Themes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/Wordpress/Wordpress Plugin Development">WordPress Plugin Development</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/technologies/Wordpress/Working with GET and POST">Introducing Superglobals $_GET and $_POST</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Wordpress</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Introducing Superglobals $_GET and $_POST</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Introducing Superglobals <code>$_GET</code> and <code>$_POST</code></h1></header>
+<ul>
+<li>PHP Superglobal - associative array of data that is created by the server to capture information from URLs, HTML forms, cookies, sessions, and web servers.<!-- -->
+<ul>
+<li>This information is available everywhere in the script.</li>
+</ul>
+</li>
+<li>Superglobals can be used without typing <code>global $variable</code>.</li>
+<li>A complete list of superglobals can be found in the documentation.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="working-with-_get-values">Working with <code>$_GET</code> Values<a href="#working-with-_get-values" class="hash-link" aria-label="Direct link to working-with-_get-values" title="Direct link to working-with-_get-values">​</a></h2>
+<ul>
+<li><code>$_GET</code> superglobal is populated with information from the URL in the form of a query string.<!-- -->
+<ul>
+<li>Ex: A query string with a person&#x27;s username would look like this: <a href="http://localhost:8080/index.php?name=jonathan" target="_blank" rel="noopener noreferrer">http://localhost:8080/index.php?name=jonathan</a></li>
+</ul>
+</li>
+<li>A query string starts with a <code>?</code> and the <code>$_GET</code> superglobal would grab the <code>name=jonathan</code>.</li>
+<li>There can be multiple parameters. In this case, the query string would include two items and they would be separated by an <code>&amp;</code> symbol.</li>
+<li>Note: A form attribute&#x27;s method must be set to <code>get</code> for the form to submit data via a URL.</li>
+<li>Since <code>$_GET</code> is an associative array, you can use the key to get the data:<!-- -->
+<ul>
+<li>Ex: <code>$name = $_GET[&#x27;name&#x27;];</code></li>
+</ul>
+</li>
+<li>Since there are no values on page load, be sure to use an <code>if</code> statement and the <code>isset()</code> function to ensure no errors are thrown.</li>
+<li>Using query strings is useful, but there are some security issues with it.</li>
+<li>Implications of using the GET method:<!-- -->
+<ul>
+<li>Security Risk due to the query string being visible.</li>
+<li>Query Strings can be modified by anyone.</li>
+<li>You can only submit a limited amount of information in a query string, so they can’t hold lots of information.</li>
+<li>They are the most powerful for sending information that affects the content and the presentation of a webpage.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="using-_get-variables-in-a-function">Using <code>$_GET</code> variables in a Function<a href="#using-_get-variables-in-a-function" class="hash-link" aria-label="Direct link to using-_get-variables-in-a-function" title="Direct link to using-_get-variables-in-a-function">​</a></h2>
+<ul>
+<li>Note how you can manually change the URL to change the information on the page.</li>
+<li>Also, be sure to consider what happens if the values are not set.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="working-with-_post-values">Working with <code>$_POST</code> Values<a href="#working-with-_post-values" class="hash-link" aria-label="Direct link to working-with-_post-values" title="Direct link to working-with-_post-values">​</a></h2>
+<ul>
+<li>The <code>$_POST</code> superglobal sends data to the server in a message body and is not displayed in the URL as a query string.</li>
+<li>You can access the <code>$_POST</code> variable in the same way as the <code>$_GET</code> variable.</li>
+<li>Note: A form’s method attribute must be set to <code>method=post</code> to submit form so that it is accessible to the <code>$_POST</code> superglobal.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="choosing-between-_get-and-_post">Choosing Between <code>$_GET</code> and <code>$_POST</code><a href="#choosing-between-_get-and-_post" class="hash-link" aria-label="Direct link to choosing-between-_get-and-_post" title="Direct link to choosing-between-_get-and-_post">​</a></h2>
+<ul>
+<li>Use the <code>$_GET</code> method for information if you are not passing sensitive or security vulnerable information.</li>
+<li>Use the <code>$_POST</code> variable if you want to send data to the database or a file or if the information is sensitive.<!-- -->
+<ul>
+<li>Ex: Handling passwords should be done with a POST request.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="always-filter-inputs">Always Filter Inputs<a href="#always-filter-inputs" class="hash-link" aria-label="Direct link to Always Filter Inputs" title="Direct link to Always Filter Inputs">​</a></h2>
+<ul>
+<li>The <code>filter_input()</code> function filters and validates external variables coming from insecure sources.<!-- -->
+<ul>
+<li>This is done to prevent attacks like SQL injection</li>
+<li>Ex: [<a href="http://yourdomain.com/index.php?name=" target="_blank" rel="noopener noreferrer">http://yourdomain.com/index.php?name=</a><a href="https://google.com">Click Me</a>](<a href="http://yourdomain.com/index.php?name=" target="_blank" rel="noopener noreferrer">http://yourdomain.com/index.php?name=</a><a href="https://google.com">Click Me</a>)<!-- -->
+<ul>
+<li>This link makes an unwanted domain name.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>To avoid unwanted input, you can use the <code>filter_input</code> function like this:<!-- -->
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">filter_input(INPUT_GET, &#x27;name&#x27;, FILTER_SANITIZE_STRING);</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>This would strip everything in the link above except for the &quot;Click Me&quot;.</li>
+</ul>
+</li>
+<li>The <code>filter_input()</code> takes three arguments:<!-- -->
+<ul>
+<li>Filter Type:<!-- -->
+<ul>
+<li><code>INPUT_GET</code></li>
+<li><code>INPUT_POST</code></li>
+<li><code>INPUT_COOKIE</code></li>
+<li><code>INPUT_SERVER</code></li>
+<li><code>INPUT_ENV</code></li>
+</ul>
+</li>
+<li>The name of the variable</li>
+<li>The ID or name of the filter to apply (see documentation)</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="always-escape-outputs">Always Escape Outputs<a href="#always-escape-outputs" class="hash-link" aria-label="Direct link to Always Escape Outputs" title="Direct link to Always Escape Outputs">​</a></h2>
+<ul>
+<li>Output is any data leaving the application for something else.</li>
+<li>Goal of escaping output data: represent data in a way that will not allow it to execute or get interpreted.</li>
+<li>There are three main functions for escaping HTML data using PHP:<!-- -->
+<ul>
+<li><code>strip_tags()</code></li>
+<li><code>htmlspecialchars()</code></li>
+<li><code>htmlentities()</code></li>
+</ul>
+</li>
+<li><code>strip_tags()</code> function removes all HTML tags except for the ones you specify.</li>
+<li>The <code>strip_tags()</code> function takes two different arguments:<!-- -->
+<ul>
+<li>The string to process</li>
+<li>A string containing the tags you want to allow.</li>
+<li>Ex: <code>strip_tags($str, &#x27;&lt;p&gt; &lt;img&gt;&#x27;);</code></li>
+</ul>
+</li>
+<li>When outputting data that could contain HTML, you need to encode special characters to ensure that you don&#x27;t add malicious or broken HTML to the page.</li>
+<li>The <code>htmlspecialchars()</code> and <code>htmlentities()</code> functions can be used when outputting data for storage in a database or outputting it back to the webpage.</li>
+<li>Both functions encode the <code>&lt;</code> and <code>&gt;</code> tags with <code>&amp;lt;</code> and <code>&amp;gt;</code>.</li>
+<li><code>htmlentities()</code> will encode every character that has an HTML entity equivalent, including lots and lots of symbols.</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/php">php</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/wordpress">wordpress</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/superglobals">superglobals</a></li></ul></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/technologies/Wordpress/Wordpress Plugin Development"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">WordPress Plugin Development</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#working-with-_get-values" class="table-of-contents__link toc-highlight">Working with <code>$_GET</code> Values</a></li><li><a href="#using-_get-variables-in-a-function" class="table-of-contents__link toc-highlight">Using <code>$_GET</code> variables in a Function</a></li><li><a href="#working-with-_post-values" class="table-of-contents__link toc-highlight">Working with <code>$_POST</code> Values</a></li><li><a href="#choosing-between-_get-and-_post" class="table-of-contents__link toc-highlight">Choosing Between <code>$_GET</code> and <code>$_POST</code></a></li><li><a href="#always-filter-inputs" class="table-of-contents__link toc-highlight">Always Filter Inputs</a></li><li><a href="#always-escape-outputs" class="table-of-contents__link toc-highlight">Always Escape Outputs</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Justin Szaro. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

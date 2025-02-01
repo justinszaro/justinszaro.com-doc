@@ -1,3 +1,10 @@
+---
+id: jQuery
+tags:
+  - javascript
+  - jquery
+---
+
 # jQuery Methods
 
 - `$(‘.id’).hide()`: Hides the Element

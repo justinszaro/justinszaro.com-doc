@@ -1,3 +1,10 @@
+---
+id: Mongoose Quick Start
+tags:
+  - javascript
+  - mongoose
+---
+
 # Mongoose
 
 - An elegant mongodb object modeling for node.js.

@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-technologies/PHP/PHP Standards and Best Practices" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">PHP Standards and Best Practices | Documentation &amp; Notes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.justinszaro.com/docs/technologies/PHP/PHP Standards and Best Practices"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="PHP Standards and Best Practices | Documentation &amp; Notes"><meta data-rh="true" name="description" content="| Command | Description |"><meta data-rh="true" property="og:description" content="| Command | Description |"><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://docs.justinszaro.com/docs/technologies/PHP/PHP Standards and Best Practices"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/PHP/PHP Standards and Best Practices" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/PHP/PHP Standards and Best Practices" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.461f3ee9.css">
+<script src="/assets/js/runtime~main.74eb53f5.js" defer="defer"></script>
+<script src="/assets/js/main.8c386e1d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Documentation</b></a><a class="navbar__item navbar__link" href="/docs/projects/">Projects</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/technologies/CSS/CSS Basics">Technologies</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/justinszaro" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/CSS/CSS Basics">CSS</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/General/Intro to Design Thinking">General</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/Git/Git Useful Commands">Git</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/HTML/HTML Form Basics">HTML</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/technologies/Javascript/">Javascript</a><button aria-label="Expand sidebar category &#x27;Javascript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/MySQL/Common Table Expressions">MySQL</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/technologies/PHP/PHP Basics">PHP</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP Basics">PHP Basics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/Browser Persistent Data">Browser Persistent Data</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/CRUD Operations">CRUD Operations</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP File Handling">PHP File Handling</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP Superglobals">Introducing Superglobals $_GET and $_POST</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP and MySQL">PDO Basics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP Basics">PHP Basics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/technologies/PHP/PHP Standards and Best Practices">PHP Standards and Best Practices</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/React/Packages/EasyPeasy/tutorials">React</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/Wordpress/Wordpress Action and Filter Hooks">Wordpress</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">PHP</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">PHP Standards and Best Practices</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>PHP Standards and Best Practices</h1></header>
+<table><thead><tr><th style="text-align:left">Command</th><th style="text-align:left">Description</th></tr></thead><tbody><tr><td style="text-align:left"><code>new DateTime(&quot;year, month day&quot;)</code></td><td style="text-align:left">Creates a new datetime object</td></tr><tr><td style="text-align:left"><code>echo $date-&gt;format(&quot;Format String&quot;)</code></td><td style="text-align:left">Formats a dateTime output into the requested string.</td></tr><tr><td style="text-align:left"><code>new DateTime(&#x27;2014-08-24 13:14&#x27;, new DateTimeZone(&#x27;UTC&#x27;))</code></td><td style="text-align:left">Made a datetime with the UTC timezone.</td></tr><tr><td style="text-align:left"><code>$var = clone $variable</code></td><td style="text-align:left">Clones a datetime variable&#x27;s properties and assigns it to another variable.</td></tr><tr><td style="text-align:left"><code>$dateTime-&gt;setTimeZone(new DateTimeZone(&quot;America/New_York&quot;))</code></td><td style="text-align:left">Sets a datetime’s timezone to eastern standard time.</td></tr><tr><td style="text-align:left"><code>phpinfo()</code></td><td style="text-align:left">Outputs info about PHP()</td></tr><tr><td style="text-align:left"><code>exit</code></td><td style="text-align:left">Stops a PHP script</td></tr><tr><td style="text-align:left"><code>mb_internal_encoding(&#x27;encode&#x27;)</code></td><td style="text-align:left">Let mbstring know which encoder to use.</td></tr><tr><td style="text-align:left"><code>mb_http_output(&#x27;encode&#x27;)</code></td><td style="text-align:left">Sets what encode http should use.</td></tr><tr><td style="text-align:left"><code>header(&#x27;Content-Type: text/html; charset=utf-8&#x27;)</code></td><td style="text-align:left">Sets the header for the web page and specifies the character set.</td></tr><tr><td style="text-align:left"><code>mb_strtoupper()</code></td><td style="text-align:left">Uppercase a string using mbstring</td></tr><tr><td style="text-align:left"><code>mb_strlen()</code></td><td style="text-align:left">Length of a string using mbstring</td></tr><tr><td style="text-align:left"><code>namespace name</code></td><td style="text-align:left">Makes a namespace for a class</td></tr><tr><td style="text-align:left"><code>new namespace_name\Class</code></td><td style="text-align:left">Instantiates a class of the specified namespace.</td></tr><tr><td style="text-align:left"><code>include &#x27;path&#x27;;</code></td><td style="text-align:left">Includes code from another file.</td></tr><tr><td style="text-align:left"><code>composer require package-name</code></td><td style="text-align:left">Install a package.</td></tr><tr><td style="text-align:left"><code>require &#x27;path&#x27;;</code></td><td style="text-align:left">Keywords like include, but will error if it is not found.</td></tr><tr><td style="text-align:left">`error_reporting(E_ERROR</td><td style="text-align:left">E_WARNING</td></tr><tr><td style="text-align:left"><code>error_reporting(E_ALL);</code></td><td style="text-align:left">Reports all errors.</td></tr><tr><td style="text-align:left"><code>class ExceptionName extends Exception {}</code></td><td style="text-align:left">Makes a custom exception</td></tr><tr><td style="text-align:left"><code>ini_set(&#x27;display_errors&#x27;, 1)</code></td><td style="text-align:left">Displays errors on the screen.</td></tr><tr><td style="text-align:left"><code>$handle = fopen(&#x27;file.txt.&#x27;, &#x27;r&#x27;);</code></td><td style="text-align:left">Read a file in PHP</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+<ul>
+<li>To keep the benefits of PHP, it is best to conform to best practices.</li>
+<li>There are groups that manage best practices:<!-- -->
+<ul>
+<li>IETF: HTTP Spec</li>
+<li>WSC: HTTP</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="history">History<a href="#history" class="hash-link" aria-label="Direct link to History" title="Direct link to History">​</a></h2>
+<ul>
+<li>Historically, PHP was one of the first languages that developers learned.</li>
+<li>PHP had a lot of beginners, so it was common to find poor quality code in production.</li>
+<li>PHP Framework Interop Group - A group that writes standards for PHP projects to conform to.</li>
+<li>PHP the Right Way is an up-to-date information about packages and ways that tasks can be solved.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="choosing-a-database-extension">Choosing a Database Extension<a href="#choosing-a-database-extension" class="hash-link" aria-label="Direct link to Choosing a Database Extension" title="Direct link to Choosing a Database Extension">​</a></h2>
+<ul>
+<li>Most PHP Applications interact with some kind of data store.</li>
+<li>SQL - Structured Query Language.</li>
+<li>Databases like SQL, PostgreSQL, and SQLite</li>
+<li>Can insert and query data using PHP.</li>
+<li>Three extensions can be used to interact with a MySQL database:<!-- -->
+<ul>
+<li><code>mysql</code>
+<ul>
+<li>Deprecated, is being removed with the new version of PHP.</li>
+</ul>
+</li>
+<li><code>mysqli</code>
+<ul>
+<li>A safe option for MySQL.</li>
+</ul>
+</li>
+<li><code>pdo</code>
+<ul>
+<li>Normally worked with</li>
+<li>Gives support for multiple types of databases.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>There are extensions for the other SQL</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="working-with-datetime">Working with DateTime<a href="#working-with-datetime" class="hash-link" aria-label="Direct link to Working with DateTime" title="Direct link to Working with DateTime">​</a></h2>
+<ul>
+<li>Has a core class called <code>DateTime</code>.</li>
+<li>Allows you to store and compare dates and times.</li>
+<li><code>$date = new DateTime(&quot;year, month day&quot;)</code> makes a new datetime.</li>
+<li>Can be formatted with an echo: <code>echo $date-&gt;format(&quot;format string&quot;)</code>
+<ul>
+<li><code>&quot;m/d/Y&quot; = 08/23/2022</code></li>
+<li>A SQL date string is the most commonly used format.</li>
+</ul>
+</li>
+<li>Date times can also be created using keywords starting with a plus or a minus.<!-- -->
+<ul>
+<li>Ex:<!-- -->
+<ul>
+<li><code>+2 week</code></li>
+<li><code>tomorrow</code></li>
+<li><code>next week</code></li>
+</ul>
+</li>
+<li>The PHP manual has all of the supported formats.</li>
+<li>If a format is not supported, we can make it.<!-- -->
+<ul>
+<li><code>$raw_format = &#x27;10. 11. 1968&#x27;;</code></li>
+<li><code>$date = DateTime::createFromFormat(&#x27;d. M. Y&#x27;, $raw_format);</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="datetime-comparisons">DateTime Comparisons<a href="#datetime-comparisons" class="hash-link" aria-label="Direct link to DateTime Comparisons" title="Direct link to DateTime Comparisons">​</a></h2>
+<ul>
+<li>DateTime objects can be compared directly.</li>
+<li>Avoid the old date and STR time functions.</li>
+<li>Avoid adding and subtracting specific numbers of seconds to change dates due to the difference in time zones.</li>
+<li>To find the difference between two datetimes:<!-- -->
+<ul>
+<li><code>$var = $variable-&gt;diff($variable);</code></li>
+</ul>
+</li>
+<li>Can be formatted in a string using <code>%d</code> (day), <code>%m</code> (month), <code>%y</code> (year).<!-- -->
+<ul>
+<li><code>echo $var-&gt;format(&quot;%y years, %m months, %d days&quot;);</code></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="understanding-time-zones">Understanding Time Zones<a href="#understanding-time-zones" class="hash-link" aria-label="Direct link to Understanding Time Zones" title="Direct link to Understanding Time Zones">​</a></h2>
+<ul>
+<li>Time Zones are a big challenge for developers.</li>
+<li>Users should see the current time in their time zone.</li>
+<li>Things to remember:<!-- -->
+<ul>
+<li>Not all time zones are <code>+/- 1</code> hour, so storing integers does not work.</li>
+<li>Not all time zones have daylight savings time</li>
+<li>Political events can change time zones.</li>
+</ul>
+</li>
+<li>Easy way is to store UTC dates into the database. Made into UTC on input and changed on the way out.</li>
+<li>To calculate times and offsets, developers store <code>+1</code> or <code>-4</code> as an integer in the database.<!-- -->
+<ul>
+<li>Is not the best way.</li>
+</ul>
+</li>
+<li>SQL truncate floats, so only decimals can be included, so this isn’t useful.</li>
+<li>Best way is to store the time zone in the database and not just the offset.</li>
+<li>PHP uses IANA Time Zones, which is an international agency that keeps time zones up to date.</li>
+<li>To make a datetime with a UTC timezone: <code>new DateTime(&#x27;2014-08-24 13:14&#x27;, new DateTimeZone(&#x27;UTC&#x27;))</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="understanding-utf-8">Understanding UTF-8<a href="#understanding-utf-8" class="hash-link" aria-label="Direct link to Understanding UTF-8" title="Direct link to Understanding UTF-8">​</a></h2>
+<ul>
+<li>Unicode Transfer Format</li>
+<li>Collection of bits that coincide with a character set.</li>
+<li>UTF-8 is the most popular character encoding.</li>
+<li>Allows for emojis, international characters, and international symbols.</li>
+<li>Even if the website is in the US, people&#x27;s names may need international symbols to write out.</li>
+<li>PHP working with UTF-8 is possible with a non-default extension called <code>mbstring</code></li>
+<li><code>phpinfo()</code>: Outputs information about installed and enabled modules.<!-- -->
+<ul>
+<li><code>exit;</code> will stop the rest of the code from running.</li>
+</ul>
+</li>
+<li><code>mb_internal_encoding(&#x27;encoding&#x27;)</code>: Lets the <code>mbstring</code> extension know which encoding we are working with.</li>
+<li><code>mb_http_output(&#x27;encoding&#x27;)</code>: Ensures that HTML is outputted using the proper encoding.</li>
+<li>The common PHP string functions are wrong in this case, so we need to use the <code>mbstring</code> functions instead.</li>
+<li><code>mbstring</code> has a function for almost every string function, so just use the <code>mb_</code> prefix.</li>
+<li>Databases also need to be configured to use UTF-8.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="namespaces">Namespaces<a href="#namespaces" class="hash-link" aria-label="Direct link to Namespaces" title="Direct link to Namespaces">​</a></h2>
+<ul>
+<li>Common idea in programming languages.</li>
+<li>Namespaces allow for two classes/functions of identical names to be used without causing conflicts.</li>
+<li>Can be used with classes, functions, and constants</li>
+<li>Using two classes of the same name will cause an error, unless the second one is in a namespace.</li>
+<li>You can declare a namespace in a class using the <code>namespace</code> command:<!-- -->
+<ul>
+<li><code>namespace HTTP;</code></li>
+</ul>
+</li>
+<li>This can then be referenced when making the class:<!-- -->
+<ul>
+<li><code>new HTTP\Client</code></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="autoloading">Autoloading<a href="#autoloading" class="hash-link" aria-label="Direct link to Autoloading" title="Direct link to Autoloading">​</a></h2>
+<ul>
+<li>Very useful for Object Oriented Programming</li>
+<li>Allows for code that is needed to be autoloaded.</li>
+<li>The autoloader and files must have the same rules.</li>
+<li>Takes over the <code>include</code> keyword.</li>
+<li>The <code>spl_autoload_register</code> function will be called if PHP does not recognize a class.</li>
+<li>Double backslashes are used because the first one is an escape character.</li>
+<li>It may be a good idea to use the standard for autoloading and file paths so that autoloaders work properly.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="composer">Composer<a href="#composer" class="hash-link" aria-label="Direct link to Composer" title="Direct link to Composer">​</a></h2>
+<ul>
+<li>Powerful dependency manager.</li>
+<li>Helps developers share and implement shared code.</li>
+<li>Can specify versions, stability levels, and easily run updates.</li>
+<li>Composer can be used in the terminal by using the <code>composer</code> command.</li>
+<li>Install a package: <code>composer require package</code></li>
+<li>Makes a <code>composer.json</code> file with all of the packages that need to be installed, along with their versions.</li>
+<li><code>league/flysystem</code> is a file manager package.</li>
+<li>Can use its own autoloader.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="creating-components">Creating Components<a href="#creating-components" class="hash-link" aria-label="Direct link to Creating Components" title="Direct link to Creating Components">​</a></h2>
+<ul>
+<li>Components are also called packages.</li>
+<li>It is common to have a namespace and a class for the main class of the component.</li>
+<li>All of the code is in an <code>src</code> folder.</li>
+<li>Unit Testing is easier and more efficient than testing in the browser.</li>
+<li>To install <code>phpunit</code>: <code>composer require phpunit/phpunit --dev</code>
+<ul>
+<li><code>--dev</code> means that it will not be installed on production environments.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="psr-1">PSR-1<a href="#psr-1" class="hash-link" aria-label="Direct link to PSR-1" title="Direct link to PSR-1">​</a></h2>
+<ul>
+<li>It has become far more common for people to use standards and recommendations to increase compatibility between projects and code.</li>
+<li>PSR-1 is a standard recommendation for what to include in your PHP code:<!-- -->
+<ul>
+<li>Code must use a long tag (<code>&lt;?php ?&gt;</code>) or a short echo tag (<code>&lt;?= ?&gt;</code>).</li>
+<li>Should be in UTF-8</li>
+<li>A file should declare new symbols (classes, functions, constants, etc.) and cause no other effects, or it should execute logic with side effects, not both.<!-- -->
+<ul>
+<li>Side effects are generating output, explicitly using <code>require</code> or <code>include</code>, connecting to global services, reading and writing to a file, etc.</li>
+</ul>
+</li>
+<li>Namespaces and classes must follow PSR-0 or PSR-4</li>
+<li>PSR-1 is not an automatic standard</li>
+<li>Namespaces and Classes need to be studly caps.<!-- -->
+<ul>
+<li>Ex: Turtle, British, JumpingJacks</li>
+</ul>
+</li>
+<li>Functions are camelCase<!-- -->
+<ul>
+<li>Ex: jumpingJacks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PSR-1 can be found on php-fig.org</li>
+<li>Keep file loading to a minimum.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="psr-2">PSR-2<a href="#psr-2" class="hash-link" aria-label="Direct link to PSR-2" title="Direct link to PSR-2">​</a></h2>
+<ul>
+<li>More controversial recommendation.</li>
+<li>Is a style guide, which is more personal.</li>
+<li>Allows for everyone to conform to a chosen style guide.</li>
+<li>Works well for teams (where brackets go)</li>
+<li>Rules and Overview:<!-- -->
+<ul>
+<li>Code must be compliant with PSR-1</li>
+<li>Code must use 4 spaces for indenting, not tabs.</li>
+<li>There must not be a hard limit on line lengths, soft limit is 120 characters, lines should be 80 characters or less.</li>
+<li>There must be one blank line after the one namespace declaration.</li>
+<li>There must be one blank line after the block of use declarations.</li>
+<li>Put curly brackets on their own lines.</li>
+<li>Visibility must be declared on all properties and methods.</li>
+<li>Abstract and Final must be declared before the visibility.</li>
+<li>Static must be declared after the visibility.</li>
+<li>Control Structure keywords must have one space after them.<!-- -->
+<ul>
+<li>If, else, switch, do, while, for each</li>
+<li>Braces must go on the same line, closing after the body.</li>
+</ul>
+</li>
+<li>Method and function calls must not have a space after them.</li>
+</ul>
+</li>
+<li>PHP code sniffer will match our code with PSR-2<!-- -->
+<ul>
+<li>To download: <code>composer require squizlabs/php_codesniffer</code></li>
+<li>To run: <code>./vendor/bin/phpcs src --standard=PSR2</code></li>
+<li>To fix automatically: <code>./vendor/bin/phpcbf src --standard=PSR2</code></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="composer-metadata">Composer Metadata<a href="#composer-metadata" class="hash-link" aria-label="Direct link to Composer Metadata" title="Direct link to Composer Metadata">​</a></h2>
+<ul>
+<li>Extra data in the composer file needs to be defined so that it can be submitted to the repository.</li>
+<li>A name needs to be added that is unique. Includes a vendor name and a package name.</li>
+<li>A description is added about the package.</li>
+<li>Optional: An array of keywords of arbitrary strings in alphanumeric order.</li>
+<li>License: what can be done with the code</li>
+<li>Author: an array with square brackets of each author. Each author can have 4 properties.<!-- -->
+<ul>
+<li>Author name</li>
+<li>Author email</li>
+<li>Homepage - blog/github/company address</li>
+<li>Role - “developer”</li>
+</ul>
+</li>
+<li>Require: Packages that are required for your package to run.<!-- -->
+<ul>
+<li>Can specify a PHP version.</li>
+</ul>
+</li>
+<li>The command: <code>composer validate</code> will ensure that the JSON file is valid.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="semantic-versioning">Semantic Versioning<a href="#semantic-versioning" class="hash-link" aria-label="Direct link to Semantic Versioning" title="Direct link to Semantic Versioning">​</a></h2>
+<ul>
+<li>Composer enforces semantic versioning.</li>
+<li>Version numbers have 3 parts.<!-- -->
+<ul>
+<li>Major: Backwards incompatible changes<!-- -->
+<ul>
+<li>Renaming classes and methods</li>
+</ul>
+</li>
+<li>Minor: Backwards compatible changes<!-- -->
+<ul>
+<li>Anything that doesn’t break the API</li>
+</ul>
+</li>
+<li>Patch:<!-- -->
+<ul>
+<li>Doesn’t add functionality</li>
+<li>For bug fixes and securities.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Initially, a package has the version 0.1.0.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="errors">Errors<a href="#errors" class="hash-link" aria-label="Direct link to Errors" title="Direct link to Errors">​</a></h2>
+<ul>
+<li>PHP is an exception light language.</li>
+<li>Errors are normally thrown instead of exceptions</li>
+<li>Errors have different levels.</li>
+<li>Most common errors are:<!-- -->
+<ul>
+<li><code>E_ERROR</code></li>
+<li><code>E_NOTICE</code></li>
+<li><code>E_WARNING</code></li>
+</ul>
+</li>
+<li>PHP will normally keep executing if it has an error.</li>
+<li>A core error function is used to see what error is ignored or reported.<!-- -->
+<ul>
+<li><code>error_reporting(E_ERROR | E_WARNING | E_PARSE);</code>
+<ul>
+<li>Reports these errors.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>To report all errors: <code>error_reporting(E_ALL);</code></li>
+<li>In production, no errors should be displayed or thrown.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="exceptions">Exceptions<a href="#exceptions" class="hash-link" aria-label="Direct link to Exceptions" title="Direct link to Exceptions">​</a></h2>
+<ul>
+<li>Exceptions are available if you want to include them in your code.</li>
+<li>Exceptions thrown make errors obvious.</li>
+<li>You can make your own exceptions: <code>class ExceptionName extends Exception {}</code></li>
+<li><code>Buzz\Browser</code> is a package that allows you to work with HTTP calls.</li>
+<li>Switch elements allow you to specify cases.<!-- -->
+<ul>
+<li><code>default:</code> covers all other cases.</li>
+</ul>
+</li>
+<li>Try catch blocks will attempt code and if it errors, it throws an exception. The catch block will catch exceptions and perform a different task instead.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="converting-errors-to-exceptions">Converting Errors to Exceptions<a href="#converting-errors-to-exceptions" class="hash-link" aria-label="Direct link to Converting Errors to Exceptions" title="Direct link to Converting Errors to Exceptions">​</a></h2>
+<ul>
+<li>PHP can convert its errors to exceptions.</li>
+<li>Useful when errors cannot be avoided<!-- -->
+<ul>
+<li>Ex: Finding a file.</li>
+</ul>
+</li>
+<li>Converting errors to exceptions can help you handle race conditions.</li>
+<li>To read a file: <code>$handle = fopen(&#x27;file.txt.&#x27;, &#x27;r&#x27;);</code></li>
+<li>Errors can be converted to Exceptions using the <code>set_error_handler</code> function:<!-- -->
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">set_error_handler(function ($errno, $errstr, $errfile, $errline) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  throw new ErrorException($errstr, 0, $errno, $errfile, $errline);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">});</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>Once converted to an exception, the exception has to be caught.</li>
+<li>Helps to find hidden errors.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="logging-with-psr-3">Logging with PSR-3<a href="#logging-with-psr-3" class="hash-link" aria-label="Direct link to Logging with PSR-3" title="Direct link to Logging with PSR-3">​</a></h2>
+<ul>
+<li>No errors or exceptions should be shown to the user in production.</li>
+<li>Errors and exceptions should be logged in production.</li>
+<li>PSR-3 standardizes the interfaces for basic logging interactions.</li>
+<li>You need to use an actual logger system to implement PSR-3.</li>
+<li>Monolog is a great logger system.<!-- -->
+<ul>
+<li><code>composer require monolog/monolog</code></li>
+</ul>
+</li>
+<li>A new log channel should be made with its own <code>pushHandlers</code>.</li>
+<li><code>debug</code>, <code>warning</code>, <code>critical</code>, and <code>error</code> are all provided by PSR-3.</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/php">php</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/best-practices">best practices</a></li></ul></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/technologies/PHP/PHP Basics"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">PHP Basics</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/technologies/React/Packages/EasyPeasy/tutorials"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Easy Peasy Tutorials</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introduction" class="table-of-contents__link toc-highlight">Introduction</a></li><li><a href="#history" class="table-of-contents__link toc-highlight">History</a></li><li><a href="#choosing-a-database-extension" class="table-of-contents__link toc-highlight">Choosing a Database Extension</a></li><li><a href="#working-with-datetime" class="table-of-contents__link toc-highlight">Working with DateTime</a></li><li><a href="#datetime-comparisons" class="table-of-contents__link toc-highlight">DateTime Comparisons</a></li><li><a href="#understanding-time-zones" class="table-of-contents__link toc-highlight">Understanding Time Zones</a></li><li><a href="#understanding-utf-8" class="table-of-contents__link toc-highlight">Understanding UTF-8</a></li><li><a href="#namespaces" class="table-of-contents__link toc-highlight">Namespaces</a></li><li><a href="#autoloading" class="table-of-contents__link toc-highlight">Autoloading</a></li><li><a href="#composer" class="table-of-contents__link toc-highlight">Composer</a></li><li><a href="#creating-components" class="table-of-contents__link toc-highlight">Creating Components</a></li><li><a href="#psr-1" class="table-of-contents__link toc-highlight">PSR-1</a></li><li><a href="#psr-2" class="table-of-contents__link toc-highlight">PSR-2</a></li><li><a href="#composer-metadata" class="table-of-contents__link toc-highlight">Composer Metadata</a></li><li><a href="#semantic-versioning" class="table-of-contents__link toc-highlight">Semantic Versioning</a></li><li><a href="#errors" class="table-of-contents__link toc-highlight">Errors</a></li><li><a href="#exceptions" class="table-of-contents__link toc-highlight">Exceptions</a></li><li><a href="#converting-errors-to-exceptions" class="table-of-contents__link toc-highlight">Converting Errors to Exceptions</a></li><li><a href="#logging-with-psr-3" class="table-of-contents__link toc-highlight">Logging with PSR-3</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Justin Szaro. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

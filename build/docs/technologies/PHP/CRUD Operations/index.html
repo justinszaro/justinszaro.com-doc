@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-technologies/PHP/CRUD Operations" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">CRUD Operations | Documentation &amp; Notes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.justinszaro.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.justinszaro.com/docs/technologies/PHP/CRUD Operations"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="CRUD Operations | Documentation &amp; Notes"><meta data-rh="true" name="description" content="What is CRUD?:"><meta data-rh="true" property="og:description" content="What is CRUD?:"><link data-rh="true" rel="icon" href="/img/logo.svg"><link data-rh="true" rel="canonical" href="https://docs.justinszaro.com/docs/technologies/PHP/CRUD Operations"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/PHP/CRUD Operations" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.justinszaro.com/docs/technologies/PHP/CRUD Operations" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.461f3ee9.css">
+<script src="/assets/js/runtime~main.74eb53f5.js" defer="defer"></script>
+<script src="/assets/js/main.8c386e1d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="justinszaro.com" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Documentation</b></a><a class="navbar__item navbar__link" href="/docs/projects/">Projects</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/technologies/CSS/CSS Basics">Technologies</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/justinszaro" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/CSS/CSS Basics">CSS</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/General/Intro to Design Thinking">General</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/Git/Git Useful Commands">Git</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/HTML/HTML Form Basics">HTML</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/technologies/Javascript/">Javascript</a><button aria-label="Expand sidebar category &#x27;Javascript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/MySQL/Common Table Expressions">MySQL</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/technologies/PHP/PHP Basics">PHP</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP Basics">PHP Basics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/Browser Persistent Data">Browser Persistent Data</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/technologies/PHP/CRUD Operations">CRUD Operations</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP File Handling">PHP File Handling</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP Superglobals">Introducing Superglobals $_GET and $_POST</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP and MySQL">PDO Basics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP Basics">PHP Basics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/PHP/PHP Standards and Best Practices">PHP Standards and Best Practices</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/React/Packages/EasyPeasy/tutorials">React</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/Wordpress/Wordpress Action and Filter Hooks">Wordpress</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">PHP</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">CRUD Operations</span><meta itemprop="position" content="2"></li></ul></nav><div class="theme-doc-markdown markdown"><header><h1>CRUD Operations</h1></header><p>What is CRUD?:</p>
+<ul>
+<li>CRUD - Create, remove, update, delete.</li>
+<li>CRUD is everything you would want to do in a database for an application.</li>
+</ul>
+<p>Connecting to the Database</p>
+<ul>
+<li>PHP’s Data Object, or PDO, connects the application to the database.</li>
+<li>You can create a new PDO object by performing<!-- -->
+<ul>
+<li>$db = new PDO();</li>
+</ul>
+</li>
+<li>You use the PDO_SQLITE_DSN for connecting to SQLite databases</li>
+<li>To connect to a database on disk, you add the absolute path to the database.<!-- -->
+<ul>
+<li>$db = new PDO(&quot;sqlite:&quot;.__DIR__.&quot;/database.db&quot;);</li>
+</ul>
+</li>
+<li>Be sure to handle the case if the connection to the database cannot be established.</li>
+</ul>
+<p>Handling Exceptions</p>
+<ul>
+<li>Remember that exceptions are exceptional, they should not occur for something that you expect to happen.</li>
+<li>You want to use a try catch block when connecting to databases.</li>
+<li>You also want to tell the PDO that all errors should be handled as an exception:<!-- -->
+<ul>
+<li>$db-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</li>
+</ul>
+</li>
+</ul>
+<p>Reading Project Data:</p>
+<ul>
+<li>It is important to understand the structure of the data that you are working with.</li>
+<li>It is a good idea to map the relationships between the tables in a relational database.</li>
+<li>Note: It is a very good idea to separate concerns:<!-- -->
+<ul>
+<li>Code that pulls information from the database should be separate from the code that displays the data.</li>
+</ul>
+</li>
+<li>To query the database: $db-&gt;query(‘Query’)</li>
+<li>Querying the database throughout the files should also include a try catch block as well.</li>
+<li>To access the results of a query, you can loop through the results using the for each and pull information by using the column name as the key.</li>
+</ul>
+<p>Accepting User Data:</p>
+<ul>
+<li>When handling values from outside the code, you need to filter input and escape output.</li>
+<li>There are two possible form submission types, get and post.</li>
+<li>In general GET is used when merely retrieving or getting data.<!-- -->
+<ul>
+<li>Recall that the values become part of the URL.</li>
+</ul>
+</li>
+<li>POST is used when it is taking other actions.</li>
+<li>POST advantages:<!-- -->
+<ul>
+<li>Name-value pairs are not displayed in the URL</li>
+<li>URLS can be refreshed multiple times<!-- -->
+<ul>
+<li>Causing duplication</li>
+</ul>
+</li>
+<li>More data can be submitted.</li>
+</ul>
+</li>
+<li>First, you want to check that POST is being used:<!-- -->
+<ul>
+<li>if ($_SERVER[&#x27;REQUEST_METHOD&#x27;] == &quot;POST&quot;</li>
+</ul>
+</li>
+<li>You also want to use filter_input() to ensure that no malicious code is being sent in.</li>
+<li>Lastly, it is a good idea to trim the input of any whitespace.</li>
+</ul>
+<p>Adding Projects:</p>
+<ul>
+<li>Auto-incrementing IDS allow you to add records to a database without needing to add a primary key.</li>
+<li>A prepared statement is a template for a SQL statement that can be customized to fit our needs.</li>
+<li>A prepared statement also escapes the variables so that no SQL injection can occur.</li>
+<li>For each value in the prepared statement, you want to bind a value to it.</li>
+<li>Then, execute the statement in a try catch block.<!-- -->
+<ul>
+<li>$results = $db-&gt;prepare($sql);</li>
+<li>$results-&gt;bindValue(1, $title, PDO::PARAM_STR);</li>
+<li>$results-&gt;bindValue(2, $category, PDO::PARAM_STR);</li>
+<li>$results-&gt;execute();</li>
+</ul>
+</li>
+</ul>
+<p>Reading Task Data:</p>
+<ul>
+<li>Same process as the projects list.</li>
+</ul>
+<p>Remembering Form Data:</p>
+<ul>
+<li>You can remember the form data by setting the variables as empty string before the server checks for the request method.</li>
+<li>Be sure to add it to the webpage so it shows up!</li>
+</ul>
+<p>Validating Dates:</p>
+<ul>
+<li>Ensuring that the dates are correct makes the data more valid.</li>
+<li>It also avoids SQL from erroring out..</li>
+<li>It is good to check that the date will split into three different sections of the correct date. \</li>
+<li>Then the checkDate(month, day, year) can check to ensure that the date is actually a valid date.</li>
+</ul>
+<p>Totaling Time:</p>
+<ul>
+<li>Reports allow you to understand what you have and make a story.<!-- -->
+<ul>
+<li>It can Describe<!-- -->
+<ul>
+<li>Visitors</li>
+<li>Forecast inventory</li>
+<li>Which pages are the most popular?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Summarizing Project Time:</p>
+<ul>
+<li>To fetch all of the results from a query:<!-- -->
+<ul>
+<li>return $results-&gt;fetchAll(PDO::FETCH_ASSOC);</li>
+</ul>
+</li>
+<li>The next() function can look at the next item in an array.</li>
+</ul>
+<p>Filtering By Project:</p>
+<ul>
+<li>The is_array() function checks if the argument inserted is an array.</li>
+<li>It is useful to include the WHERE clause outside of the made SQL statement so it is easy to modify.</li>
+</ul>
+<p>Filtering by Category:</p>
+<ul>
+<li>Using a switch statement can be really powerful when applying filters to tons of data.</li>
+<li>It is also a good idea to build the project so that it is scalable, even if it may not be.</li>
+</ul>
+<p>Filtering by Time Period:</p>
+<ul>
+<li>Date reports are really common. They are normally separated by ranges.</li>
+<li>strtotime() can be used in a multitude of ways:<!-- -->
+<ul>
+<li>First day of last month</li>
+<li>Last day of last month</li>
+<li>-1 Saturday</li>
+</ul>
+</li>
+</ul>
+<p>Naming Reports:</p>
+<ul>
+<li>Be sure to tell the user what they are looking at.</li>
+<li>ucwords() will title case the string inserted into it.</li>
+</ul>
+<p>Updating Projects:</p>
+<ul>
+<li>Requirements change, so flexibility is needed when creating projects.</li>
+<li>You can make a list from a call by doing:<!-- -->
+<ul>
+<li>list($list elements….) = get_project($project_id)</li>
+</ul>
+</li>
+</ul>
+<p>Updating Tasks:</p>
+<ul>
+<li>Similar to updating projects.</li>
+</ul>
+<p>Deleting Tasks:</p>
+<ul>
+<li>You need to be very careful when giving the option to delete entities. If an entry is accidentally deleted, there is no turning back from it.</li>
+</ul>
+<p>Preserving Data Integrity:</p>
+<ul>
+<li>When adding and removing data, you need to be aware of how it is viewed on the website.</li>
+<li>If you remove a piece of data, it should not affect how other data appears on the page.</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/php">php</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/docs/tags/mysql">mysql</a></li></ul></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/technologies/PHP/Browser Persistent Data"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Browser Persistent Data</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/technologies/PHP/PHP File Handling"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">PHP File Handling</div></a></nav></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Justin Szaro. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
