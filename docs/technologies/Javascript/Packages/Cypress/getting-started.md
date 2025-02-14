@@ -107,3 +107,6 @@ it('adds a todo', () => {
     .should('contain', { title: 'Write API Tests' })
 })
 ```
+
+## Cypress in the Real Word
+- Cypress comes with a pretty cool real world example in this [Github Repo](https://github.com/cypress-io/cypress-realworld-app).
