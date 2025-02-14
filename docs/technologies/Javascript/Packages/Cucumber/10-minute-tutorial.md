@@ -1,5 +1,5 @@
 ---
-id: Cucumber: 10 Minute Tutorial
+id: Cucumber 10 Minute Tutorial
 tags:
   - javascript
   - testing
